@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 4, 2018 5:20:17 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.jets.dao.Product" table="product" catalog="ecommerce" optimistic-lock="version">
+        <id name="productId" type="java.lang.Integer">
+            <column name="product_id" />
+            <generator class="identity" />
+        </id>
+        <property name="productName" type="string">
+            <column name="product_name" length="45" not-null="true" />
+        </property>
+        <property name="productPrice" type="string">
+            <column name="product_price" length="45" not-null="true" />
+        </property>
+        <property name="producctDescription" type="string">
+            <column name="producct_description" length="45" not-null="true" />
+        </property>
+        <property name="productQuantity" type="java.lang.Integer">
+            <column name="product_quantity" />
+        </property>
+        <property name="productImage" type="binary">
+            <column name="product_image" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
