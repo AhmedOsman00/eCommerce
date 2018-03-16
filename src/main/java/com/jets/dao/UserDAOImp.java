@@ -1,5 +1,6 @@
 package com.jets.dao;
 
+import com.jets.dao.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

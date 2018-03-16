@@ -4,6 +4,10 @@
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>com.jets.dao.SignUpServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubmitCartServlet</servlet-name>
+        <servlet-class>com.jets.dao.SubmitCartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -15,10 +19,14 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitCartServlet</servlet-name>
+        <url-pattern>/SubmitCartServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
-        </session-timeout>
+                30
+            </session-timeout>
     </session-config>
 </web-app>
