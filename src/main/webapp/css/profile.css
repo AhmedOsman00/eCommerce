@@ -1,0 +1,48 @@
+/* 
+    Created on : 17-Mar-2018, 9:58:02 PM
+    Author     : Fadwa
+*/
+
+.profileDiv input[type="button"]:hover {
+   background: #2fdab8;
+}
+
+.profileDiv input[type="button"] {
+    border: none;
+    padding: 10px 40px 10px;
+    font-size: 14px;
+    outline: none;
+    text-transform: uppercase;
+    margin: 0 0 0 -4px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background:#111;
+    color: #fff;
+    float:right;
+}
+
+.profileDiv {
+    padding: 10px 10px 10px 10px;
+}
+
+.userImg {
+    height: 180px;
+}
+
+.profileContentDiv {
+    padding-left: 300px;
+}
+
+#userName {
+    font-weight: bold;
+}
+
+.newInput {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center; 
+}

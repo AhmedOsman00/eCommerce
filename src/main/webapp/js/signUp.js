@@ -3,6 +3,13 @@ var passwordValidatorReq = null;
 var confirmPasswordValidatorReq = null;
 var birthdayValidatorReq = null;
 var signUpUserReq = null;
+var nameIsValid = false;
+var emailIsValid = false;
+var passwordIsValid = false;
+var confirmPasswordIsValid = false;
+var birthdayIsValid = false;
+var jobIsValid = false;
+var addressIsValid = false;
 
 function showBdPlaceholder() {
     document.getElementById("birthday").placeholder = "dd-mm-yyyy";
@@ -10,6 +17,16 @@ function showBdPlaceholder() {
 
 function hideBdPlaceholder() {
     document.getElementById("birthday").placeholder = "";
+}
+
+function signUpModalStarted() {
+    nameIsValid = false;
+    emailIsValid = false;
+    passwordIsValid = false;
+    confirmPasswordIsValid = false;
+    birthdayIsValid = false;
+    jobIsValid = false;
+    addressIsValid = false;
 }
 
 function validateEmail() {
@@ -30,9 +47,13 @@ function handleValidateEmailReq() {
     if (emailValidatorReq.readyState == 4 && emailValidatorReq.status == 200) {
 
         if (emailValidatorReq.responseText == "valid") {
-            console.log("Email Format: OK");
+            //console.log("Email Format: OK");
+            document.getElementById("emailErrMSg").style.visibility = "hidden";
+            emailIsValid = true;
         } else {
-            console.log("Email Format: NOT OK");
+            //console.log("Email Format: NOT OK");
+            document.getElementById("emailErrMSg").style.visibility = "visible";
+            emailIsValid = false;
         }
     }
 }
@@ -54,9 +75,13 @@ function handleValidatePasswordReq() {
     if (passwordValidatorReq.readyState == 4 && passwordValidatorReq.status == 200) {
 
         if (passwordValidatorReq.responseText == "valid") {
-            console.log("Password Format: OK");
+            //console.log("Password Format: OK");
+            document.getElementById("passwordErrMsg").style.visibility = "hidden";
+            passwordIsValid = true;
         } else {
-            console.log("Password Format: NOT OK");
+            //console.log("Password Format: NOT OK");
+            document.getElementById("passwordErrMsg").style.visibility = "visible";
+            passwordIsValid = false;
         }
     }
 }
@@ -80,9 +105,13 @@ function handleValidateConfirmPasswordReq() {
     if (confirmPasswordValidatorReq.readyState == 4 && confirmPasswordValidatorReq.status == 200) {
 
         if (confirmPasswordValidatorReq.responseText == "valid") {
-            console.log("Password Confirmed");
+            //console.log("Password Confirmed");
+            document.getElementById("confirmPasswordErrMsg").style.visibility = "hidden";
+            confirmPasswordIsValid = true;
         } else {
-            console.log("Password NOT Confirmed");
+            //console.log("Password NOT Confirmed");
+            document.getElementById("confirmPasswordErrMsg").style.visibility = "visible";
+            confirmPasswordIsValid = false;
         }
     }
 }
@@ -106,39 +135,78 @@ function handleValidateBirthdayReq() {
     if (birthdayValidatorReq.readyState == 4 && birthdayValidatorReq.status == 200) {
 
         if (birthdayValidatorReq.responseText == "valid") {
-            console.log("Birthday Confirmed");
+            //console.log("Birthday Confirmed");
+            document.getElementById("birthdayErrMsg").style.visibility = "hidden";
+            birthdayIsValid = true;
         } else {
-            console.log("Birthday NOT Confirmed");
+            //console.log("Birthday NOT Confirmed");
+            document.getElementById("birthdayErrMsg").style.visibility = "visible";
+            birthdayIsValid = false;
         }
+    }
+}
+
+//Validator for name, job, address
+function checkIfEmpty(objId) {
+
+    if (document.getElementById(objId).value == "") {
+        document.getElementById(objId.concat("ErrMsg")).style.visibility = "visible";
+        if (objId == "name")
+            nameIsValid = false;
+        else if (objId == "job")
+            jobIsValid = false;
+        else if (objId == "address")
+            addressIsValid = false;
+    }
+
+    else {
+        document.getElementById(objId.concat("ErrMsg")).style.visibility = "hidden";
+        if (objId == "name")
+            nameIsValid = true;
+        else if (objId == "job")
+            jobIsValid = true;
+        else if (objId == "address")
+            addressIsValid = true;
     }
 }
 
 function signUpNewUser() {
     //Check if there are no error msgs
+    if (nameIsValid && emailIsValid && passwordIsValid && confirmPasswordIsValid && birthdayIsValid && jobIsValid && addressIsValid) {
+        if (window.XMLHttpRequest)
+            signUpUserReq = new XMLHttpRequest();
+        else
+            signUpUserReq = new ActiveXObject(Microsoft.XMLHTTP);
 
-    if (window.XMLHttpRequest)
-        signUpUserReq = new XMLHttpRequest();
-    else
-        signUpUserReq = new ActiveXObject(Microsoft.XMLHTTP);
+        signUpUserReq.onreadystatechange = handleSignUpReq;
+        name = document.getElementById("name").value;
+        email = document.getElementById("email").value;
+        password = document.getElementById("password").value;
+        birthday = document.getElementById("birthday").value;
+        job = document.getElementById("job").value;
+        address = document.getElementById("address").value;
 
-    signUpUserReq.onreadystatechange = handleSignUpReq;
-    name = document.getElementById("name").value;
-    email = document.getElementById("email").value;
-    password = document.getElementById("password").value;
-    birthday = document.getElementById("birthday").value;
-    job = document.getElementById("job").value;
-    address = document.getElementById("address").value;
-
-    url = "SignUpServlet?name=" + name + "&email=" + email + "&password=" + password + 
-            "&birthday=" + birthday + "&job=" + job+ "&address=" + address + "&timeStamp=" + new Date().getTime();
-    signUpUserReq.open("POST", url, true);
-    signUpUserReq.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    signUpUserReq.send(null);
+        url = "SignUpServlet?name=" + name + "&email=" + email + "&password=" + password +
+                "&birthday=" + birthday + "&job=" + job + "&address=" + address + "&timeStamp=" + new Date().getTime();
+        signUpUserReq.open("POST", url, true);
+        signUpUserReq.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        signUpUserReq.send(null);
+    }
+    
+    else {
+        checkIfEmpty("name");
+        validateEmail();
+        validatePassword();
+        validateConfirmPassword();
+        validateBirthday();
+        checkIfEmpty("job");
+        checkIfEmpty("address");
+    }
 }
 
 function handleSignUpReq() {
     if (signUpUserReq.readyState == 4 && signUpUserReq.status == 200) {
-        
+
         if (signUpUserReq.responseText == "valid") {
             console.log("Signed Up Successfully");
         } else {

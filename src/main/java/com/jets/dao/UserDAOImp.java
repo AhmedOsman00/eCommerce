@@ -36,6 +36,8 @@ public class UserDAOImp implements UserDAOInt {
             session.getTransaction().commit();
             System.out.println("Insertion Done");
             userInserted = true;
+            ///////////////////////////Temporarily
+            session.close();
             
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -56,10 +58,4 @@ public class UserDAOImp implements UserDAOInt {
         return userDeleted;
     }
 
-    @Override
-    public boolean updateUser(User user) {
-        boolean userUpdated = false;
-        
-        return userUpdated;
-    }
 }

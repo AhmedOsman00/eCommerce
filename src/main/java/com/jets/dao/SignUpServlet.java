@@ -8,9 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -89,12 +86,7 @@ public class SignUpServlet extends HttpServlet {
             newUser.setAddress(request.getParameter("address"));
 
             System.out.println(newUser.getUserName());
-            System.out.println(newUser.getUserEmail());
-            System.out.println(newUser.getUserPassword());
-            System.out.println(newUser.getUserBirthday());
-            System.out.println(newUser.getUserJob());            
-            System.out.println(newUser.getAddress());
-
+            
             if(UserDAOImp.getUserDAO().insertUser(newUser))
                 out.print("valid");
             else
