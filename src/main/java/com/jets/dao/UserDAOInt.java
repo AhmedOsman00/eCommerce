@@ -7,6 +7,7 @@ package com.jets.dao;
 public interface UserDAOInt {
     public User selectUser (String name,String email);
     public boolean insertUser (User user);
+    public boolean addProduct(Product product);
     public boolean deleteUser (String email);
   
 }

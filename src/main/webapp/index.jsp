@@ -74,7 +74,7 @@ function handleRTwo() {
                         <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
                     </c:if>
                     <c:if test="${!empty sessionScope.userInformation}">
-                        <li> <a href="profile.html" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
+                        <li> <a href="about.jsp"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
                         <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
                         <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
@@ -95,7 +95,7 @@ function handleRTwo() {
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 logo_agile">
-                    <h1><a href="index.html"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+                    <h1><a href="index.jsp"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 agileits-social top_content">
@@ -140,10 +140,10 @@ function handleRTwo() {
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">Products</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">Products</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
                                 </ul>
                             </div>
                         </div>

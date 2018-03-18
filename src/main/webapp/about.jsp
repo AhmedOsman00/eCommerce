@@ -5,6 +5,8 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
@@ -29,10 +31,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header" id="home">
 	<div class="container">
 		<ul>
-		    <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
-			<li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
-			<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-			<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+		      <c:if test="${empty sessionScope.userInformation}">
+                        <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Sign In </a></li>
+                        <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+                    </c:if>
+                    <c:if test="${!empty sessionScope.userInformation}">
+                        <li> <a href="about.jsp"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
+                        <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+                    </c:if>
 		</ul>
 	</div>
 </div>
@@ -94,10 +104,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav menu__list">
-					<li class="active menu__item"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-					<li class=" menu__item"><a class="menu__link" href="about.html">Products</a></li>
-					<li class=" menu__item menu__item--current"><a class="menu__link" href="about.html">About</a></li>
-					<li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+					<li class="active menu__item"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+					<li class=" menu__item"><a class="menu__link" href="about.jsp">Products</a></li>
+					<li class=" menu__item menu__item--current"><a class="menu__link" href="about.jsp">About</a></li>
+					<li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
 				  </ul>
 				</div>
 			  </div>
@@ -240,7 +250,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="agile_inner_breadcrumb">
 
 						   <ul class="w3_short">
-								<li><a href="index.html">Home</a><i>|</i></li>
+								<li><a href="index.jsp">Home</a><i>|</i></li>
 								<li>About</li>
 							</ul>
 						 </div>
@@ -550,7 +560,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
 	<div class="footer_agile_inner_info_w3l">
 		<div class="col-md-3 footer-left">
-			<h2><a href="index.html"><span>E</span>lite Shoppy </a></h2>
+			<h2><a href="index.jsp"><span>E</span>lite Shoppy </a></h2>
 			<p>Elite Shoppy is a website for e-commerce</p>
 			<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
 															<li><a href="#" class="facebook">
@@ -572,10 +582,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-4 sign-gd">
 					<h4>Our <span>Information</span> </h4>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">Products</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="index.jsp">Home</a></li>
+						<li><a href="about.jsp">Products</a></li>
+						<li><a href="about.jsp">About</a></li>
+						<li><a href="contact.jsp">Contact</a></li>
 					</ul>
 				</div>
 				
