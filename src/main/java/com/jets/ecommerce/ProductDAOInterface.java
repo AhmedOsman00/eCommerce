@@ -17,5 +17,5 @@ public interface ProductDAOInterface {
     void insertProduct(Product product);
     void deleteProduct(Product product);
     ArrayList<Product> selectAllProducts();
-    
+    Product selectProductById(int id);
 }

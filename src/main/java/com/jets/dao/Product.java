@@ -11,22 +11,22 @@ public class Product  implements java.io.Serializable {
 
      private Integer productId;
      private String productName;
-     private String productPrice;
+     private int productPrice;
      private String producctDescription;
      private Integer productQuantity;
-     private byte[] productImage;
+     private String productImage;
 
     public Product() {
     }
 
 	
-    public Product(String productName, String productPrice, String producctDescription, byte[] productImage) {
+    public Product(String productName, int productPrice, String producctDescription, String productImage) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.producctDescription = producctDescription;
         this.productImage = productImage;
     }
-    public Product(String productName, String productPrice, String producctDescription, Integer productQuantity, byte[] productImage) {
+    public Product(String productName, int productPrice, String producctDescription, Integer productQuantity, String productImage) {
        this.productName = productName;
        this.productPrice = productPrice;
        this.producctDescription = producctDescription;
@@ -48,11 +48,11 @@ public class Product  implements java.io.Serializable {
     public void setProductName(String productName) {
         this.productName = productName;
     }
-    public String getProductPrice() {
+    public int getProductPrice() {
         return this.productPrice;
     }
     
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(int productPrice) {
         this.productPrice = productPrice;
     }
     public String getProducctDescription() {
@@ -69,11 +69,11 @@ public class Product  implements java.io.Serializable {
     public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
     }
-    public byte[] getProductImage() {
+    public String getProductImage() {
         return this.productImage;
     }
     
-    public void setProductImage(byte[] productImage) {
+    public void setProductImage(String productImage) {
         this.productImage = productImage;
     }
 

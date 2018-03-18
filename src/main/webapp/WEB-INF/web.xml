@@ -8,6 +8,14 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.jets.dao.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductsServlet</servlet-name>
+        <servlet-class>com.jets.ecommerce.ProductsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditDeleteServlet</servlet-name>
+        <servlet-class>com.jets.ecommerce.EditDeleteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductsServlet</servlet-name>
+        <url-pattern>/ProductsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditDeleteServlet</servlet-name>
+        <url-pattern>/EditDeleteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
