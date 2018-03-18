@@ -24,14 +24,7 @@ public class ProductsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductManager mgr = ProductManager.getProductManager();
-//        ArrayList<Product> products = mgr.selectAllProducts();
-        Product p = new Product("dog", 1000, "rott", 2, "https://cdn.working-dog.net/gXsRN130AhC5GaFhwpdaqwCW3SFDh_bC1VAMLu0xdBE,.jpg");
-        p.setProductId(1);
-        Product p2 = new Product("dog", 1000, "rott", 2, "https://cdn.working-dog.net/gXsRN130AhC5GaFhwpdaqwCW3SFDh_bC1VAMLu0xdBE,.jpg");
-        p2.setProductId(2);
-        ArrayList<Product> products = new ArrayList();
-        products.add(p);
-        products.add(p2);
+        ArrayList<Product> products = mgr.selectAllProducts();
         request.setAttribute("products",products);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
@@ -43,10 +36,8 @@ public class ProductsServlet extends HttpServlet {
         System.out.println(id);
         ProductManager mgr = ProductManager.getProductManager();
         Product viewProduct = mgr.selectProductById(id);
-//        request.setAttribute("viewProduct",viewProduct);
-        Product p2 = new Product("dog", 1000, "rott", 2, "https://cdn.working-dog.net/gXsRN130AhC5GaFhwpdaqwCW3SFDh_bC1VAMLu0xdBE,.jpg");
-        p2.setProductId(2);
-        request.setAttribute("viewProduct",p2);
+        request.setAttribute("viewProduct",viewProduct);
+        request.setAttribute("viewProduct",viewProduct);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     }
 

@@ -54,7 +54,7 @@ public class Product  implements java.io.Serializable {
         return this.productPrice;
     }
     
-    public void setProductPrice(int productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 
