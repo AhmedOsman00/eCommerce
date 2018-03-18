@@ -64,7 +64,11 @@ public class ProductManager implements ProductDAOInterface {
         }
         return products;
     }
-
+    @Override
+    public Product selectProductById(int id){
+        Product product =  (Product) session.get(Product.class, id);
+        return product;
+    }
     @Override
     public Session getCurrentSession() {
        return session;        

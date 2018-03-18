@@ -19,13 +19,14 @@ public class Product  implements java.io.Serializable {
     public Product() {
     }
 
-	
     public Product(String productName, double productPrice, String producctDescription, String productImage) {
+
         this.productName = productName;
         this.productPrice = productPrice;
         this.producctDescription = producctDescription;
         this.productImage = productImage;
     }
+
     public Product(String productName, double productPrice, String producctDescription, Integer productQuantity, String productImage) {
        this.productName = productName;
        this.productPrice = productPrice;
@@ -48,6 +49,7 @@ public class Product  implements java.io.Serializable {
     public void setProductName(String productName) {
         this.productName = productName;
     }
+
     public double getProductPrice() {
         return this.productPrice;
     }
@@ -55,6 +57,7 @@ public class Product  implements java.io.Serializable {
     public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
+
     public String getProducctDescription() {
         return this.producctDescription;
     }

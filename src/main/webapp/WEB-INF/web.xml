@@ -32,6 +32,22 @@
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+    <servlet-name>ProductsServlet</servlet-name>
+        <servlet-class>com.jets.ecommerce.ProductsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditDeleteServlet</servlet-name>
+        <servlet-class>com.jets.ecommerce.EditDeleteServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+         <servlet-name>ProductsServlet</servlet-name>
+        <url-pattern>/ProductsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditDeleteServlet</servlet-name>
+        <url-pattern>/EditDeleteServlet</url-pattern>
+        </servlet-mapping>
     <session-config>
         <session-timeout>
             30
