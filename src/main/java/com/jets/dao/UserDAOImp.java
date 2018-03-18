@@ -29,19 +29,11 @@ public class UserDAOImp implements UserDAOInt {
     @Override
     public boolean insertUser(User user) {
         boolean userInserted = false;
-        try {
-            session.beginTransaction();
-            session.persist(user);
-            session.getTransaction().commit();
-            System.out.println("Insertion Done");
-            userInserted = true;
-        } catch (Exception ex) {
-            ///////////////////////////Temporarily
-            session.close();
-            
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
+        session.beginTransaction();
+        session.persist(user);
+        session.getTransaction().commit();
+        System.out.println("Insertion Done");
+        userInserted = true;
         return userInserted;
     }
 
