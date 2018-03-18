@@ -25,10 +25,6 @@
     padding: 10px 10px 10px 10px;
 }
 
-.userImg {
-    height: 180px;
-}
-
 .profileContentDiv {
     padding-left: 300px;
 }
@@ -38,7 +34,7 @@
 }
 
 .newInput {
-    padding: 12px 20px;
+    padding: 5px 5px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;

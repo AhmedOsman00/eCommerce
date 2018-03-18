@@ -39,7 +39,7 @@ public class UserDAOImp implements UserDAOInt {
             System.out.println("Insertion Done");
             userInserted = true;
             ///////////////////////////Temporarily
-            session.close();
+            //session.close();
             
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -94,5 +94,10 @@ public class UserDAOImp implements UserDAOInt {
         
         return userDeleted;
     }
-
+    
+    public boolean isEmailDuplicated (String Email) {
+        boolean emailFound = false;
+        
+        return emailFound;
+    }
 }
