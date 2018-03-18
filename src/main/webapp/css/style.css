@@ -1427,7 +1427,7 @@ position:relative;
 	outline:none;
 }
 #PPMiniCart .minicart-submit {
-    display: none;
+    display: visible;
 }
 #PPMiniCart .minicart-submit:hover{
 	background:#fe9126 !important;

@@ -35,7 +35,7 @@ public class ProductManager implements ProductDAOInterface {
         }
         return productManager;
     }
-
+    
     @Override
     public void insertProduct(Product product) {
         session.beginTransaction();
@@ -56,6 +56,26 @@ public class ProductManager implements ProductDAOInterface {
         ArrayList<Product> products = new ArrayList<>();
         String queryStmt = "from Product";
         Query query = session.createQuery(queryStmt);
+        List result = query.list();
+        Iterator iterator = result.iterator();
+        while (iterator.hasNext()) {
+            Product product = (Product) iterator.next();
+            products.add(product);
+        }
+        return products;
+    }
+
+    @Override
+    public Session getCurrentSession() {
+       return session;        
+    }
+
+    @Override
+    public ArrayList<Product> searchProducts(String key) {
+         ArrayList<Product> products = new ArrayList<>();
+        String queryStmt = "from Product where productName like:name";
+        String condition = "%"+key+"%";
+        Query query = session.createQuery(queryStmt).setString("name",condition);
         List result = query.list();
         Iterator iterator = result.iterator();
         while (iterator.hasNext()) {
