@@ -36,6 +36,10 @@ public class UserDAOImp implements UserDAOInt {
             System.out.println("Insertion Done");
             userInserted = true;
         } catch (Exception ex) {
+            ///////////////////////////Temporarily
+            session.close();
+            
+        } catch(Exception ex) {
             ex.printStackTrace();
         }
         return userInserted;
