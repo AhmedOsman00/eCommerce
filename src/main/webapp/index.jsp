@@ -356,11 +356,8 @@
         <!-- /new_arrivals --> 
         <div class="new_arrivals_agile_w3ls_info"> 
             <div class="container">
-                <h3 class="wthree_text_info">New <span>Arrivals</span></h3>		
-                <div id="horizontalTab">
-                    <ul class="resp-tabs-list">
-                        <li></li>
-                    </ul>
+                	
+                
                     <div class="resp-tabs-container">
                         <!--/tab_one-->
                         <div class="tab1">
@@ -376,7 +373,7 @@
                                                         <a href="javascript:document.getElementById('${count.index}').submit()" class="link-product-add-cart">Quick View</a>
                                                 </div>
                                             </div>
-                                            <span class="product-new-top">New</span>                                        
+                                                                       
                                         </div>
                                         <div class="item-info-product ">
 
@@ -412,7 +409,7 @@
                         </div>
                         <!--//tab_one-->                                               
                     </div>
-                </div>	
+                	
             </div>
         </div>       
         <!--/grids-->

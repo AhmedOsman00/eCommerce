@@ -25,6 +25,7 @@ public class ProductsServlet extends HttpServlet {
             throws ServletException, IOException {
         ProductManager mgr = ProductManager.getProductManager();
         ArrayList<Product> products = mgr.selectAllProducts();
+        System.out.println(products.size());
         request.setAttribute("products",products);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
@@ -36,7 +37,6 @@ public class ProductsServlet extends HttpServlet {
         System.out.println(id);
         ProductManager mgr = ProductManager.getProductManager();
         Product viewProduct = mgr.selectProductById(id);
-        request.setAttribute("viewProduct",viewProduct);
         request.setAttribute("viewProduct",viewProduct);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     }
