@@ -85,7 +85,7 @@
         <div class="header-bot">
             <div class="header-bot_inner_wthreeinfo_header_mid">
                 <div class="col-md-4 header-middle">
-                    <form action="/SearchServlet" method="post">
+                    <form action="SearchServlet" method="get">
                         <input type="search" name="search" placeholder="Search here..." required="">
                         <input type="submit" value=" ">
                         <div class="clearfix"></div>
