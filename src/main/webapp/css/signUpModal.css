@@ -1,0 +1,11 @@
+/* 
+    Created on : 11-Mar-2018, 11:45:09 PM
+    Author     : Fadwa
+*/
+
+.errMsg {
+    color: red;
+    font-size: 12px;
+    font-weight: normal;
+    visibility: hidden;
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 4, 2018 5:20:17 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Mar 18, 2018 7:53:03 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.jets.dao.User" table="user" catalog="ecommerce" optimistic-lock="version">
         <id name="userId" type="java.lang.Integer">
@@ -11,8 +11,8 @@
         <property name="userName" type="string">
             <column name="user_name" length="45" not-null="true" />
         </property>
-        <property name="userBirthday" type="date">
-            <column name="user_birthday" length="10" not-null="true" />
+        <property name="userBirthday" type="string">
+            <column name="user_birthday" length="45" />
         </property>
         <property name="userPassword" type="string">
             <column name="user_password" length="45" not-null="true" />
@@ -23,11 +23,17 @@
         <property name="userEmail" type="string">
             <column name="user_email" length="45" not-null="true" unique="true" />
         </property>
-        <property name="userCreditLimt" type="string">
-            <column name="user_credit_limt" length="45" />
+        <property name="userCreditLimt" type="java.lang.Double">
+            <column name="user_credit_limt" precision="22" scale="0" />
         </property>
         <property name="address" type="string">
             <column name="address" length="45" not-null="true" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="45" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="45" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

@@ -3,20 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jets.dao;
+package com.jets.ecommerce;
 
+import com.jets.dao.Product;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import org.hibernate.Session;
 
 /**
  *
- * @author Ahmed Ali
+ * @author Ahmed
  */
-public class LoginServlet extends HttpServlet {
+public class SearchServlet extends HttpServlet {
+    private ProductDAOInterface productDAOInterface;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,8 +33,21 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SearchServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SearchServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -43,7 +60,11 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //  processRequest(request, response);
+       String search = request.getParameter("search");
+       productDAOInterface = ProductManager.getProductManager();
+        ArrayList<Product> products = productDAOInterface.searchProducts(search);
+        request.setAttribute(search, products);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     /**
@@ -57,26 +78,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //  processRequest(request, response)
-        String username = request.getParameter("userName");
-        String password = request.getParameter("userPass");              
-        UserDAOImp userDaoImp = UserDAOImp.getUserDAO();        
-        User user = userDaoImp.selectUser(username, password);
-        if (user != null) {
-            System.out.println("valid :: login");
-            HttpSession session = request.getSession(true);
-            session.setAttribute("userInformation", user);
-<<<<<<< HEAD
-            //redirect to index.jsp
-          //  request.getRequestDispatcher("index.jsp").forward(request, response);
-=======
-            request.getRequestDispatcher("index.jsp").forward(request, response);
->>>>>>> 3b2e2f1f74c9f40cb8fa1a77b8640e7b3f8087b7
-         
-       } else {                 
-            System.out.println("invaild :: login");
-            response.getWriter().write("InValid");
-        }
+       
     }
 
     /**
