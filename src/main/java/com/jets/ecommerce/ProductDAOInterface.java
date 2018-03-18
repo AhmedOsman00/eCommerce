@@ -7,6 +7,7 @@ package com.jets.ecommerce;
 
 import com.jets.dao.Product;
 import java.util.ArrayList;
+import org.hibernate.Session;
 
 /**
  *
@@ -18,4 +19,6 @@ public interface ProductDAOInterface {
     void deleteProduct(Product product);
     ArrayList<Product> selectAllProducts();
     Product selectProductById(int id);
+    Session getCurrentSession();
+    ArrayList<Product> searchProducts(String key);
 }
