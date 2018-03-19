@@ -1,15 +1,15 @@
 <%-- 
-    Document   : index
-    Created on : Mar 12, 2018, 1:49:55 PM
-    Author     : Ahmed Ali
+    Document   : product
+    Created on : Mar 18, 2018, 8:20:40 PM
+    Author     : Hossam
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+        <title>Elite Shoppy an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
         <!--/tags -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,64 +17,26 @@
               Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
             function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <!--//tags -->
+        <!-- //tags -->
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
         <link href="css/font-awesome.css" rel="stylesheet"> 
         <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css'/>
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
         <!-- //for bootstrap working -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="js/signUp.js"></script>
     </head>
     <body>
         <!-- header -->
-        <script>
-
-var rTwo = null;
-function submitF() {
-    if (window.XMLHttpRequest) {
-        rTwo = new XMLHttpRequest;
-    } else if (window.ActiveXObject)
-    {
-        rTwo = new ActivXObject(Microsoft.XMLHTTP);
-    }
-    rTwo.onreadystatechange = handleRTwo;
-    yourEmail = document.getElementById("t1").value;
-    yourPassword = document.getElementById("t2").value;
-    console.log(yourEmail);
-    url = "LoginServlet" + "?timeStamp=" + new Date().getTime();
-    rTwo.open("POST", url, true);
-    rTwo.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    rTwo.send("&userName=" + yourEmail + "&userPass=" + yourPassword);
-}
-function handleRTwo() {
-    if (rTwo.readyState == 4 && rTwo.status == 200) { 
-        console.log("ajax :: response");
-        if(rTwo.responseText==="InValid"){
-        document.getElementById("inValidValue").innerHTML = rTwo.responseText;
-    }
-    else{ 
-        window.location.replace("index.jsp");
-    }
-    }
-}
-        </script>
         <div class="header" id="home">
             <div class="container">
                 <ul>
-                    <c:if test="${empty sessionScope.userInformation}">
-                        <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Sign In </a></li>
-                        <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-                    </c:if>
-                    <c:if test="${!empty sessionScope.userInformation}">
-                        <li> <a href="profile.html" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
-                        <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-                    </c:if>
+                    <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
+                    <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
                 </ul>
             </div>
         </div>
@@ -136,9 +98,8 @@ function handleRTwo() {
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">Products</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
+                                    <li class="active menu__item"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>                                                                      
                                     <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
@@ -147,7 +108,7 @@ function handleRTwo() {
                 </div>
                 <div class="top_nav_right">
                     <div class="wthreecartaits wthreecartaits2 cart cart box_1"> 
-                        <form action="#" method="post" class="last">                           
+                        <form action="#" method="post" class="last"> 
                             <input type="hidden" name="cmd" value="_cart">
                             <input type="hidden" name="display" value="1">
                             <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
@@ -170,19 +131,18 @@ function handleRTwo() {
                     <div class="modal-body modal-body-sub_agile">
                         <div class="col-md-8 modal_body_left modal_body_left1">
                             <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
-                            <form>
+                            <form action="#" method="post">
                                 <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" required="" id="t1">
+                                    <input type="text" name="Name" required="">
                                     <label>Name</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input">
-                                    <input type="email" name="Email" required="" id="t2"> 
+                                    <input type="email" name="Email" required=""> 
                                     <label>Email</label>
                                     <span></span>
                                 </div> 
-                                <input type="button" value="Sign In" onclick="submitF();">
-                                <span id ="inValidValue"></span>
+                                <input type="submit" value="Sign In">
                             </form>
                             <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
                                 <li><a href="#" class="facebook">
@@ -223,47 +183,46 @@ function handleRTwo() {
                     <div class="modal-body modal-body-sub_agile">
                         <div class="col-md-8 modal_body_left modal_body_left1">
                             <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-                            <form>
+                            <form action="#" method="post">
                                 <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" id ="name" >
+                                    <input type="text" name="Name" required="">
                                     <label>Name</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input">
-                                    <input type="text" name="Email" id="email" onblur="validateEmail()"> 
+                                    <input type="email" name="Email" required=""> 
                                     <label>Email</label>
                                     <span></span>
                                 </div> 
                                 <div class="styled-input">
-                                    <input type="password" name="password" id="password" onblur="validatePassword()"> 
+                                    <input type="password" name="password" required=""> 
                                     <label>Password</label>
                                     <span></span>
                                 </div> 
                                 <div class="styled-input">
-                                    <input type="password" name="Confirm Password" id="confirmPassword" onblur="validateConfirmPassword()"> 
+                                    <input type="password" name="Confirm Password" required=""> 
                                     <label>Confirm Password</label>
                                     <span></span>
                                 </div> 
-
-                                <div class="styled-input" >
-                                    <input type="text" name="birthday" id="birthday" onclick="showBdPlaceholder()" onblur="hideBdPlaceholder();
-                                            validateBirthday();">
-                                    <label>Birthday</label>
-                                    <span></span>
-                                </div> 
-
-                                <div class="styled-input">
-                                    <input type="text" name="Job" id ="job"> 
-                                    <label>Job</label>
-                                    <span></span>
-                                </div> 
-                                <div class="styled-input">
-                                    <input type="text" name="Address" id="address"> 
-                                    <label>Address</label>
-                                    <span></span>
-                                </div> 
-                                <input type="button" value="Sign Up" onclick="signUpNewUser()">
+                                <input type="submit" value="Sign Up">
                             </form>
+                            <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
+                                <li><a href="#" class="facebook">
+                                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                                <li><a href="#" class="twitter"> 
+                                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                                <li><a href="#" class="instagram">
+                                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                                <li><a href="#" class="pinterest">
+                                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p><a href="#">By clicking register, I agree to your terms</a></p>
+
                         </div>
                         <div class="col-md-4 modal_body_right modal_body_right1">
                             <img src="images/log_pic.jpg" alt=" "/>
@@ -275,58 +234,144 @@ function handleRTwo() {
             </div>
         </div>
         <!-- //Modal2 -->
-
-        <!-- /new_arrivals --> 
-        <div class="new_arrivals_agile_w3ls_info"> 
+        <!--/single_page-->
+        <!-- /banner_bottom_agile_info -->
+        <div class="page-head_agile_info_w3l">
             <div class="container">
-                <div id="horizontalTab">
-                    <ul class="resp-tabs-list">
-                        <li></li>
-                    </ul>
-                    <div class="resp-tabs-container">
-                        <!--/tab_one-->
-                        <div class="tab1">
-                            <div class="col-md-3 product-men">
-                                <div class="men-pro-item simpleCart_shelfItem">
-                                    <div class="men-thumb-item">
-                                        <img src="images/m1.jpg" alt="" class="pro-image-front">
-                                        <img src="images/m1.jpg" alt="" class="pro-image-back">
-                                        <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
-                                                <a href="single.html" class="link-product-add-cart">Quick View</a>
-                                            </div>
-                                        </div>
-                                        <span class="product-new-top">New</span>
+               
+                <!--/w3_short-->
+                <div class="services-breadcrumb">
+                    <div class="agile_inner_breadcrumb">
 
-                                    </div>
-                                    <div class="item-info-product ">
-                                        <h4><a href="single.html">Formal Blue Shirt</a></h4>
-                                        <div class="info-product-price">
-                                            <span class="item_price">$45.99</span>
-                                            <del>$69.71</del>
-                                        </div>
-                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                    <input type="hidden" name="amount" value="30.99" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="hidden" name="id" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" onclick=""/>
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                            
+                        
+                    </div>
+                </div>
+                <!--//w3_short-->
+            </div>
+        </div>
+
+        <!-- banner-bootom-w3-agileits -->
+        <div class="banner-bootom-w3-agileits">
+            <div class="container">
+                <div class="col-md-4 single-right-left ">
+                    <div class="grid images_3_of_2">
+                        <div class="flexslider">
+
+                            <ul class="slides">
+                                <li data-thumb="images/d2.jpg">
+                                    <div class="thumb-image"> <img src="${viewProduct.productImage}" data-imagezoom="true" class="img-responsive"> </div>
+                                </li>
+
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>	
+                    </div>
+                </div>
+                <div class="col-md-8 single-right-left simpleCart_shelfItem">
+                    <h3>${viewProduct.productName}</h3>
+                    <p><span class="item_price">$${viewProduct.productPrice}</span></p>
+                    <div class="rating1">
+                        <span class="starRating">
+                            <input id="rating5" type="radio" name="rating" value="5">
+                            <label for="rating5">5</label>
+                            <input id="rating4" type="radio" name="rating" value="4">
+                            <label for="rating4">4</label>
+                            <input id="rating3" type="radio" name="rating" value="3" checked="">
+                            <label for="rating3">3</label>
+                            <input id="rating2" type="radio" name="rating" value="2">
+                            <label for="rating2">2</label>
+                            <input id="rating1" type="radio" name="rating" value="1">
+                            <label for="rating1">1</label>
+                        </span>
+                    </div>
+                    <div class="description">
+                        <h5></h5>
+
+                    </div>
+
+
+                    <div class="occasion-cart">
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="business" value=" ">
+                                    <input type="hidden" name="item_name" value="Wing Sneakers">
+                                    <input type="hidden" name="amount" value="650.00">
+                                    <input type="hidden" name="discount_amount" value="1.00">
+                                    <input type="hidden" name="currency_code" value="USD">
+                                    <input type="hidden" name="return" value=" ">
+                                    <input type="hidden" name="cancel_return" value=" ">
+                                    <input type="submit" name="submit" value="Add to cart" class="button">
+                                </fieldset>
+
+                            </form>
+
                         </div>
-                        <!--//tab_one-->                       
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                            <form action="EditDeleteServlet" method="GET">
+                                <fieldset>
+                                    <input type="hidden" name="id" value="${viewProduct.productId}"/>
+                                    <input type="submit" name="submit" value="Delete product" class="button">
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                            <form action="EditDeleteServlet" method="POST">
+                                <fieldset>
+                                    <input type="hidden" name="id" value="${viewProduct.productId}"/>
+                                    <input type="submit" name="submit" value="Edit product" class="button">
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
+                        <li class="share">Share On : </li>
+                        <li><a href="#" class="facebook">
+                                <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="twitter"> 
+                                <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="instagram">
+                                <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="pinterest">
+                                <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+                    </ul>
+
+                </div>
+                <div class="clearfix"> </div>
+                <!-- /new_arrivals --> 
+                <div class="responsive_tabs_agileits"> 
+                    <div id="horizontalTab">
+                        <ul class="resp-tabs-list">
+                            <li>Description</li>
+
+                        </ul>
+                        <div class="resp-tabs-container">
+                            <!--/tab_one-->
+                            <div class="tab1">
+
+                                <div class="single_page_agile_its_w3ls">
+                                    <h6>${viewProduct.producctDescription}</h6>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
+                                    <p class="w3ls_para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>	
+                </div>
+                <!-- //new_arrivals --> 
+                <!--/slider_owl-->
+
+
+            </div>
+        </div>
+        <!--//single_page-->
         <!--/grids-->
         <div class="coupons">
             <div class="coupons-grids text-center">
@@ -399,8 +444,7 @@ function handleRTwo() {
                         <div class="col-md-4 sign-gd">
                             <h4>Our <span>Information</span> </h4>
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">Products</a></li>
+                                <li><a href="index.html">Home</a></li>						
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
@@ -468,20 +512,21 @@ function handleRTwo() {
                                         <div class="sign-up">
                                             <h4>Email :</h4>
                                             <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                        this.value = 'Type here';
-                                                    }" required="">	
+                                                                                                            this.value = 'Type here';
+                                                                                                        }" required="">	
                                         </div>
                                         <div class="sign-up">
                                             <h4>Password :</h4>
                                             <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                        this.value = 'Password';}" required="">
+                                                                                                            this.value = 'Password';
+                                                                                                        }" required="">
 
                                         </div>
                                         <div class="sign-up">
                                             <h4>Re-type Password :</h4>
                                             <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                        this.value = 'Password';
-                                                    }" required="">
+                                                                                                            this.value = 'Password';
+                                                                                                        }" required="">
 
                                         </div>
                                         <div class="sign-up">
@@ -496,14 +541,14 @@ function handleRTwo() {
                                         <div class="sign-in">
                                             <h4>Email :</h4>
                                             <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                        this.value = 'Type here';
-                                                    }" required="">	
+                                                                                                            this.value = 'Type here';
+                                                                                                        }" required="">	
                                         </div>
                                         <div class="sign-in">
                                             <h4>Password :</h4>
                                             <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                        this.value = 'Password';
-                                                    }" required="">
+                                                                                                            this.value = 'Password';
+                                                                                                        }" required="">
                                             <a href="#">Forgot password?</a>
                                         </div>
                                         <div class="single-bottom">
@@ -525,7 +570,6 @@ function handleRTwo() {
         </div>
         <!-- //login -->
         <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-
         <!-- js -->
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
         <!-- //js -->
@@ -534,59 +578,67 @@ function handleRTwo() {
         <!-- cart-js -->
         <script src="js/minicart.min.js"></script>
         <script>
-                                                // Mini Cart
-                                                paypal.minicart.render({
-                                                    action: '#'
-                                                });
+                                                                                                            // Mini Cart
+                                                                                                            paypal.minicart.render({
+                                                                                                                action: '#'
+                                                                                                            });
 
-                                                if (~window.location.search.indexOf('reset=true')) {
-                                                    paypal.minicart.reset();
-                                                }
+                                                                                                            if (~window.location.search.indexOf('reset=true')) {
+                                                                                                                paypal.minicart.reset();
+                                                                                                            }
         </script>
 
         <!-- //cart-js --> 
+        <!-- single -->
+        <script src="js/imagezoom.js"></script>
+        <!-- single -->
         <!-- script for responsive tabs -->						
         <script src="js/easy-responsive-tabs.js"></script>
         <script>
-                                                $(document).ready(function () {
-                                                    $('#horizontalTab').easyResponsiveTabs({
-                                                        type: 'default', //Types: default, vertical, accordion           
-                                                        width: 'auto', //auto or any width like 600px
-                                                        fit: true, // 100% fit in a container
-                                                        closed: 'accordion', // Start closed if in accordion view
-                                                        activate: function (event) { // Callback function if tab is switched
-                                                            var $tab = $(this);
-                                                            var $info = $('#tabInfo');
-                                                            var $name = $('span', $info);
-                                                            $name.text($tab.text());
-                                                            $info.show();
-                                                        }
-                                                    });
-                                                    $('#verticalTab').easyResponsiveTabs({
-                                                        type: 'vertical',
-                                                        width: 'auto',
-                                                        fit: true
-                                                    });
-                                                });
+                                                                                                            $(document).ready(function () {
+                                                                                                                $('#horizontalTab').easyResponsiveTabs({
+                                                                                                                    type: 'default', //Types: default, vertical, accordion           
+                                                                                                                    width: 'auto', //auto or any width like 600px
+                                                                                                                    fit: true, // 100% fit in a container
+                                                                                                                    closed: 'accordion', // Start closed if in accordion view
+                                                                                                                    activate: function (event) { // Callback function if tab is switched
+                                                                                                                        var $tab = $(this);
+                                                                                                                        var $info = $('#tabInfo');
+                                                                                                                        var $name = $('span', $info);
+                                                                                                                        $name.text($tab.text());
+                                                                                                                        $info.show();
+                                                                                                                    }
+                                                                                                                });
+                                                                                                                $('#verticalTab').easyResponsiveTabs({
+                                                                                                                    type: 'vertical',
+                                                                                                                    width: 'auto',
+                                                                                                                    fit: true
+                                                                                                                });
+                                                                                                            });
         </script>
-        <!-- //script for responsive tabs -->		
-        <!-- stats -->
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.countup.js"></script>
+        <!-- FlexSlider -->
+        <script src="js/jquery.flexslider.js"></script>
         <script>
-                                                $('.counter').countUp();
+                                                            // Can also be used with $(document).ready()
+                                                            $(window).load(function () {
+                                                                $('.flexslider').flexslider({
+                                                                    animation: "slide",
+                                                                    controlNav: "thumbnails"
+                                                                });
+                                                            });
         </script>
-        <!-- //stats -->
+        <!-- //FlexSlider-->
+        <!-- //script for responsive tabs -->		
         <!-- start-smoth-scrolling -->
         <script type="text/javascript" src="js/move-top.js"></script>
         <script type="text/javascript" src="js/jquery.easing.min.js"></script>
         <script type="text/javascript">
-                                                jQuery(document).ready(function ($) {
-                                                    $(".scroll").click(function (event) {
-                                                        event.preventDefault();
-                                                        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
-                                                    });
-                                                });
+                                                                                                            jQuery(document).ready(function ($) {
+                                                                                                                $(".scroll").click(function (event) {
+                                                                                                                    event.preventDefault();
+                                                                                                                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                                                                                                                });
+                                                                                                            });
         </script>
         <!-- here stars scrolling icon -->
         <script type="text/javascript">
@@ -604,8 +656,7 @@ function handleRTwo() {
 
             });
         </script>
-        <!-- //here ends scrolling icon in
-
+        <!-- //here ends scrolling icon -->
 
         <!-- for bootstrap working -->
         <script type="text/javascript" src="js/bootstrap.js"></script>
