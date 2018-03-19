@@ -18,8 +18,12 @@
         <servlet-class>com.jets.ecommerce.SearchServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>logoutServelet</servlet-name>
-        <servlet-class>com.jets.ecommerce.logoutServelet</servlet-class>
+        <servlet-name>CreditChargeServlet</servlet-name>
+        <servlet-class>com.jets.dao.CreditChargeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUserProfileServlet</servlet-name>
+        <servlet-class>com.jets.dao.EditUserProfileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
@@ -36,6 +40,14 @@
     <servlet-mapping>
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreditChargeServlet</servlet-name>
+        <url-pattern>/CreditChargeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUserProfileServlet</servlet-name>
+        <url-pattern>/EditUserProfileServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>ProductsServlet</servlet-name>
@@ -65,6 +77,10 @@
         <servlet-name>logoutServelet</servlet-name>
         <url-pattern>/logoutServelet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>logoutServelet</servlet-name>
+        <servlet-class>com.jets.ecommerce.logoutServelet</servlet-class>
+    </servlet>
     <session-config>
         <session-timeout>
             30

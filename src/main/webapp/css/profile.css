@@ -18,15 +18,29 @@
     letter-spacing: 1px;
     background:#111;
     color: #fff;
-    float:right;
 }
 
+#profileBtn {
+    float: right;
+}
+
+#chargeCreditBtn {
+    margin-left: 10px;
+}
 .profileDiv {
     padding: 10px 10px 10px 10px;
 }
 
-.userImg {
-    height: 180px;
+.chargeResultCorrect {
+    color: #3bf93b;
+    padding-left: 20px;
+    visibility: hidden;
+}
+
+.chargeResultWrong {
+    color: red;
+    padding-left: 20px;
+    visibility: hidden;
 }
 
 .profileContentDiv {
@@ -38,11 +52,11 @@
 }
 
 .newInput {
-    padding: 12px 20px;
+    padding: 5px 5px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    text-align: center; 
+    padding-left: 5px;
 }

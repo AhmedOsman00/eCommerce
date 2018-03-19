@@ -29,11 +29,17 @@ public class UserDAOImp implements UserDAOInt {
     @Override
     public boolean insertUser(User user) {
         boolean userInserted = false;
-        session.beginTransaction();
-        session.persist(user);
-        session.getTransaction().commit();
-        System.out.println("Insertion Done");
-        userInserted = true;
+        try {
+            session.beginTransaction();
+            session.persist(user);
+            session.getTransaction().commit();
+            System.out.println("Insertion Done");
+            userInserted = true;
+        } catch (Exception ex) {
+            ///////////////////////////Temporarily
+            //session.close();
+            ex.printStackTrace();
+        }
         return userInserted;
     }
 
@@ -68,7 +74,15 @@ public class UserDAOImp implements UserDAOInt {
 
         return userDeleted;
     }
-@Override
+
+    @Override
+    public boolean isEmailDuplicated(String Email) {
+        boolean emailFound = false;
+
+        return emailFound;
+    }
+
+    @Override
     public Session getCurrentSession() {
         return session;
     }

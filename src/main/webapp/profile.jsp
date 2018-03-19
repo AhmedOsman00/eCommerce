@@ -1,14 +1,13 @@
+<%-- 
+    Document   : Profile
+    Created on : 18-Mar-2018, 1:20:48 AM
+    Author     : Fadwa
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
-
-
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html>
     <head>
@@ -129,156 +128,65 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </div>
         <!-- //banner-top -->
-        <!-- Modal1 -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body modal-body-sub_agile">
-                        <div class="col-md-8 modal_body_left modal_body_left1">
-                            <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
-                            <form action="#" method="post">
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" required="">
-                                    <label>Name</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="email" name="Email" required=""> 
-                                    <label>Email</label>
-                                    <span></span>
-                                </div> 
-                                <input type="submit" value="Sign In">
-                            </form>
-                            <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-                                <li><a href="#" class="facebook">
-                                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="twitter"> 
-                                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="instagram">
-                                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="pinterest">
-                                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <p><a href="#" data-toggle="modal" data-target="#myModal2" > Don't have an account?</a></p>
-
-                        </div>
-                        <div class="col-md-4 modal_body_right modal_body_right1">
-                            <img src="images/log_pic.jpg" alt=" "/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <!-- //Modal content-->
-            </div>
-        </div>
-        <!-- //Modal1 -->
-        <!-- Modal2 -->
-        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body modal-body-sub_agile">
-                        <div class="col-md-8 modal_body_left modal_body_left1">
-                            <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-                            <form>
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" id ="name" required="" onblur="checkIfEmpty('name')">
-                                    <label>Name</label>
-                                    <span></span>
-                                </div>
-                                <label class="errMsg" id="nameErrMsg">Name field is required</label>
-
-                                <div class="styled-input">
-                                    <input type="text" name="Email" id="email" onblur="validateEmail()" required=""> 
-                                    <label>Email</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="emailErrMSg">Invalid Email</label>
-
-                                <div class="styled-input">
-                                    <input type="password" name="password" id="password" onblur="validatePassword()" required=""> 
-                                    <label>Password</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="passwordErrMsg">Password should be at least 6 characters long</label>
-
-                                <div class="styled-input">
-                                    <input type="password" name="Confirm Password" id="confirmPassword" onblur="validateConfirmPassword()" required=""> 
-                                    <label>Confirm Password</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="confirmPasswordErrMsg">Password does not match the confirm password</label>
-
-
-                                <div class="styled-input" >
-                                    <input type="text" name="birthday" id="birthday" onclick="showBdPlaceholder()" 
-                                           onblur="hideBdPlaceholder();validateBirthday();" required="">
-                                    <label>Birthday</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="birthdayErrMsg">Invalid Birthday</label>
-
-                                <div class="styled-input">
-                                    <input type="text" name="Job" id ="job" required="" onblur="checkIfEmpty('job')"> 
-                                    <label>Job</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="jobErrMsg">Job field is required</label>
-
-                                <div class="styled-input">
-                                    <input type="text" name="Address" id="address" required="" onblur="checkIfEmpty('address')"> 
-                                    <label>Address</label>
-                                    <span></span>
-                                </div>
-                                <label class="errMsg" id="addressErrMsg">Address field is required</label>
-                                <br><br>
-
-                                <input type="button" value="Sign Up" onclick="signUpNewUser()">
-                            </form>
-                        </div>
-                        <br><br><br><div class="col-md-4 modal_body_right modal_body_right1">
-                            <img src="images/log_pic.jpg" alt=" "/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <!-- //Modal content-->
-            </div>
-        </div>
-        <!-- //Modal2 -->
-
-        <!-- banner -->
-
 
 
         <div class="profileDiv">
 
             <br>
-            <input type="button" value="Edit Profile" id = "profileBtn" onclick="editOrSaveProfileData()">
 
+            <input type="text" placeholder="Enter the code here..." class="newInput" id="creditCode">
+            <input type="button" value="Charge" id = "chargeCreditBtn" onclick="chargeCreditCard(${sessionScope.userInformation.userId})">
+            <input type="button" value="Edit Profile" id = "profileBtn" onclick="editOrSaveProfileData(${sessionScope.userInformation.userId})">
+            <br>
+            <div class="chargeResultCorrect" id="chargeMsg">charged successfully</div>
             <br>
             <center>
                 <br><br>
-                <img src="images/default-profile.png" class="userImg"/><br><br>
-                <div id="userNameDiv"><h2 id="userName">User Name</h2></div>
-                <h3 class="userJob">User Job</h3>
+                <div id="userNameDiv"><h2 id="userName">${sessionScope.userInformation.userName}</h2></div>
+                <div id="userJobDiv"><h3 id="userJob">${sessionScope.userInformation.userJob}</h3></div>
 
                 <br><br>
                 <h4>
-                    <b>Email:</b> useremail@email.com<br><br>
-                    <b>Birthdate:</b> birthdate<br><br>
+                    <div id="userEmailDiv">
+                        <b>Email:&nbsp;&nbsp;</b> 
+                        <span id="userEmail">${sessionScope.userInformation.userEmail}</span>
+                    </div>
+                    <br><br>
+
+                    <div id="userPasswordDiv">
+                        <b>Password:&nbsp;&nbsp;</b>
+                        <span id="userPassword">
+                            <c:forEach begin="0" end="${fn:length(sessionScope.userInformation.userPassword) - 1}" step="1">
+                                <c:out value = "*"/>
+                            </c:forEach>
+                        </span>
+                    </div>
+                    <br><br>
+
+                    <div id="userBirthdayDiv">
+                        <b>Birthday:&nbsp;&nbsp;</b>
+                        <span id="userBirthday">
+                            ${sessionScope.userInformation.userBirthday}
+                        </span>
+                    </div>
+                    <br><br>
+
+                    <div id="userAddressDiv">
+                        <b>Address:&nbsp;&nbsp;</b>
+                        <span id="userAddress">
+                            ${sessionScope.userInformation.address}
+                        </span>
+                    </div>
+                    <br><br>
+
+                    <div id="userCreditLimitDiv">
+                        <b>Credit Limit:&nbsp;&nbsp;</b> 
+                        <span id="userCreditLimit">
+                            ${sessionScope.userInformation.userCreditLimt}
+                        </span>
+                    </div>
+                    <br><br>
+
                 </h4>
 
             </center> 
@@ -526,3 +434,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script type="text/javascript" src="js/bootstrap.js"></script>
     </body>
 </html>
+

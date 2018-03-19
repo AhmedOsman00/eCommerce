@@ -72,7 +72,7 @@
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>                       
                         </c:if>
                         <c:if test="${!empty sessionScope.userInformation}">
-                        <li> <a href="profile.html" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
+                        <li> <a href="profile.jsp" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
                         <li onclick="signUpModalStarted();"> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
                         <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="logoutServelet">Log Out</a></li>
