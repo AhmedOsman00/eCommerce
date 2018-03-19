@@ -39,7 +39,7 @@ public class EditDeleteServlet extends HttpServlet {
         ProductManager mgr = ProductManager.getProductManager();
         Product editedProduct = mgr.selectProductById(id);
         request.setAttribute("product",editedProduct);
-        request.getRequestDispatcher("AddProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("addProduct.jsp").forward(request, response);
     }
 
     

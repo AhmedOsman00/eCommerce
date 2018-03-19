@@ -32,7 +32,9 @@
     </head>
     <body>
         <!-- header -->
+         <!-- header -->
         <script>
+           
 
             var rTwo = null;
             function submitF() {
@@ -57,7 +59,7 @@
                     if (rTwo.responseText === "InValid") {
                         document.getElementById("inValidValue").innerHTML = rTwo.responseText;
                     } else {
-                        window.location.replace("index.jsp");
+                        window.location.replace("ProductsServlet");
                     }
                 }
             }
@@ -68,15 +70,13 @@
                     <c:if test="${empty sessionScope.userInformation}">
                         <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Sign In </a></li>
                         <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>                       
+                        </c:if>
+                        <c:if test="${!empty sessionScope.userInformation}">
+                        <li> <a href="profile.jsp" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-                    </c:if>
-                    <c:if test="${!empty sessionScope.userInformation}">
-                        <li> <a href="profile.html" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
-                        <li onclick="signUpModalStarted();"> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-                    </c:if>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="logoutServelet">Log Out</a></li>
+                        </c:if>
                 </ul>
             </div>
         </div>
@@ -91,10 +91,11 @@
                         <div class="clearfix"></div>
                     </form>
                 </div>
-                <!-- header-bot -->
                 <div class="col-md-4 logo_agile">
-                    <h1><a href="index.jsp"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+                    <h1><a href="ProductsServlet"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
                 </div>
+                <!-- header-bot -->
+                
                 <!-- header-bot -->
                 <div class="col-md-4 agileits-social top_content">
                     <ul class="social-nav model-3d-0 footer-social w3_agile_social">
@@ -138,14 +139,18 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>                                   
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="ProductsServlet">Home <span class="sr-only">(current)</span></a></li>                                   
+                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
+                                        <c:if test="${sessionScope.userInformation.type.equals('admin')}">
+                                        <li class=" menu__item"><a class="menu__link" href="addProduct.html">Add Product</a></li>
+                                        </c:if>
                                 </ul>
                             </div>
                         </div>
                     </nav>	
                 </div>
+                <c:if test="${sessionScope.userInformation.type.equals('user')}">
                 <div class="top_nav_right">
                     <div class="wthreecartaits wthreecartaits2 cart cart box_1"> 
                         <form action="#" method="post" class="last">                           
@@ -156,10 +161,12 @@
 
                     </div>
                 </div>
+                </c:if>
                 <div class="clearfix"></div>
             </div>
         </div>
-
+        <!-- //banner-top -->
+        <!-- Modal1 -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -172,13 +179,13 @@
                             <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
                             <form>
                                 <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" required="" id="t1">
-                                    <label>Name</label>
+                                    <input type="email" name="Email" required="" id="t1">
+                                    <label>Email</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input">
-                                    <input type="email" name="Email" required="" id="t2"> 
-                                    <label>Email</label>
+                                    <input type="password" name="pass" required="" id="t2"> 
+                                    <label>Password</label>
                                     <span></span>
                                 </div> 
                                 <input type="button" value="Sign In" onclick="submitF();">
@@ -208,85 +215,6 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body modal-body-sub_agile">
-                        <div class="col-md-8 modal_body_left modal_body_left1">
-                            <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-                            <form>
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" id ="name" required="" onblur="checkIfEmpty('name')">
-                                    <label>Name</label>
-                                    <span></span>
-                                </div>
-                                <label class="errMsg" id="nameErrMsg">Name field is required</label>
-
-                                <div class="styled-input">
-                                    <input type="text" name="Email" id="email" onblur="validateEmail()" required=""> 
-                                    <label>Email</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="emailErrMSg">Invalid Email</label>
-
-                                <div class="styled-input">
-                                    <input type="password" name="password" id="password" onblur="validatePassword()" required=""> 
-                                    <label>Password</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="passwordErrMsg">Password should be at least 6 characters long</label>
-
-                                <div class="styled-input">
-                                    <input type="password" name="Confirm Password" id="confirmPassword" onblur="validateConfirmPassword()" required=""> 
-                                    <label>Confirm Password</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="confirmPasswordErrMsg">Password does not match the confirm password</label>
-
-
-                                <div class="styled-input" >
-                                    <input type="text" name="birthday" id="birthday" onclick="showBdPlaceholder()" 
-                                           onblur="hideBdPlaceholder();validateBirthday();" required="">
-                                    <label>Birthday</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="birthdayErrMsg">Invalid Birthday</label>
-
-                                <div class="styled-input">
-                                    <input type="text" name="Job" id ="job" required="" onblur="checkIfEmpty('job')"> 
-                                    <label>Job</label>
-                                    <span></span>
-                                </div> 
-                                <label class="errMsg" id="jobErrMsg">Job field is required</label>
-
-                                <div class="styled-input">
-                                    <input type="text" name="Address" id="address" required="" onblur="checkIfEmpty('address')"> 
-                                    <label>Address</label>
-                                    <span></span>
-                                </div>
-                                <label class="errMsg" id="addressErrMsg">Address field is required</label>
-                                <br><br>
-
-                                <input type="button" value="Sign Up" onclick="signUpNewUser()">
-                            </form>
-                        </div>
-                        <br><br><br><div class="col-md-4 modal_body_right modal_body_right1">
-                            <img src="images/log_pic.jpg" alt=" "/>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <!-- //Modal content-->
-            </div>
-        </div>
-        
         
         <!-- login -->
         <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -360,6 +288,9 @@
                 </div>
             </div>
         </div>
+            </div>
+        </div>
+        
         <!-- //login -->
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
         <!-- //js -->

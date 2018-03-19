@@ -29,23 +29,29 @@ public class UserDAOImp implements UserDAOInt {
     @Override
     public boolean insertUser(User user) {
         boolean userInserted = false;
-        session.beginTransaction();
-        session.persist(user);
-        session.getTransaction().commit();
-        System.out.println("Insertion Done");
-        userInserted = true;
+        try {
+            session.beginTransaction();
+            session.persist(user);
+            session.getTransaction().commit();
+            System.out.println("Insertion Done");
+            userInserted = true;
+        } catch (Exception ex) {
+            ///////////////////////////Temporarily
+            //session.close();
+            ex.printStackTrace();
+        }
         return userInserted;
     }
 
     @Override
-    public User selectUser(String username, String email) {
+    public User selectUser(String email, String password) {
         User user = null;
         if (session != null) {
             try {
-                String hql = "from User where userName=:username and userEmail=:email";
+                String hql = "from User where userEmail=:email and userPassword=:password";
                 Query query = session.createQuery(hql);
-                query.setParameter("username", username);
                 query.setParameter("email", email);
+                query.setParameter("password", password);
                 List<User> list = query.list();
                 if (list.size() != 0) {
                     System.out.println("user :: found");
@@ -70,7 +76,15 @@ public class UserDAOImp implements UserDAOInt {
     }
 
     @Override
+    public boolean isEmailDuplicated(String Email) {
+        boolean emailFound = false;
+
+        return emailFound;
+    }
+
+    @Override
     public Session getCurrentSession() {
         return session;
     }
+
 }
