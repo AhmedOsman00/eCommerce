@@ -105,8 +105,8 @@
                                         <c:if test="${sessionScope.userInformation.type.equals('admin')}">
                                         <li class=" menu__item"><a class="menu__link" href="addProduct.html">Add Product</a></li>
                                         </c:if>
-                                    <li class="active menu__item"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
+                                    <li class="active menu__item"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
                                     <li class="dropdown menu__item">
                                         <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men's wear <span class="caret"></span></a>
                                         <ul class="dropdown-menu multi-column columns-3">

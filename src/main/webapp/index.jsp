@@ -70,8 +70,8 @@
                         <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
                         <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-                    </c:if>
-                    <c:if test="${!empty sessionScope.userInformation}">
+                        </c:if>
+                        <c:if test="${!empty sessionScope.userInformation}">
                         <li> <a href="about.jsp"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
                         <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
@@ -138,16 +138,9 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-<<<<<<< HEAD
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="products.jsp">Products</a></li>
+                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>                                   
                                     <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
                                     <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
-=======
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>                                   
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
->>>>>>> b2f401994416328c875d12bbb779c794605e5e44
                                 </ul>
                             </div>
                         </div>
@@ -386,58 +379,32 @@
                                             <span class="product-new-top">New</span>                                        
                                         </div>
                                         <div class="item-info-product ">
-
-<<<<<<< HEAD
-                                    </div>
-                                    <div class="item-info-product ">
-                                        <h4><a href="single.html">Formal Blue Shirt</a></h4>
-                                        <div class="info-product-price">
-                                            <span class="item_price">$45.99</span>
-                                            <del>$69.71</del>
-                                        </div>
-                                         <c:if test="${sessionScope.userInformation.type.equals('user')}">
-                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                    <input type="hidden" name="amount" value="30.99" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />                                                    
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" onclick="addToCart(7);"/>
-                                                </fieldset>
-=======
                                             <input type="hidden" name="id" value="${product.productId}"/>
                                             <h4><a href="javascript:document.getElementById('${count.index}').submit()">${product.productName}</a></h4>
->>>>>>> b2f401994416328c875d12bbb779c794605e5e44
                                             </form>
                                             <div class="info-product-price">
                                                 <span class="item_price">$${product.productPrice}</span>
+                                            </div>
+                                            <c:if test="${sessionScope.userInformation.type.equals('user')}">
+                                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                                    <form action="#" method="post">
+                                                        <fieldset>
+                                                            <input type="hidden" name="cmd" value="_cart" />
+                                                            <input type="hidden" name="add" value="1" />
+                                                            <input type="hidden" name="business" value=" " />
+                                                            <input type="hidden" name="item_name" value="Men's Black Jeans" />
+                                                            <input type="hidden" name="amount" value="30.99" />
+                                                            <input type="hidden" name="discount_amount" value="1.00" />
+                                                            <input type="hidden" name="currency_code" value="USD" />
+                                                            <input type="hidden" name="return" value=" " />
+                                                            <input type="hidden" name="cancel_return" value=" " />
+                                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
 
                                             </div>
-                                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                                <form action="#" method="post">
-                                                    <fieldset>
-                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                        <input type="hidden" name="add" value="1" />
-                                                        <input type="hidden" name="business" value=" " />
-                                                        <input type="hidden" name="item_name" value="Men's Black Jeans" />
-                                                        <input type="hidden" name="amount" value="30.99" />
-                                                        <input type="hidden" name="discount_amount" value="1.00" />
-                                                        <input type="hidden" name="currency_code" value="USD" />
-                                                        <input type="hidden" name="return" value=" " />
-                                                        <input type="hidden" name="cancel_return" value=" " />
-                                                        <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                    </fieldset>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                         </c:if>
+                                        </c:if>
                                     </div>
                                 </div>
                             </c:forEach>
@@ -493,17 +460,6 @@
 
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="col-md-9 footer-right">
-            <div class="sign-grds">
-                <div class="col-md-4 sign-gd">
-                    <h4>Our <span>Information</span> </h4>
-                    <ul>
-                        <li><a href="index.jsp">Home</a></li>
-                        <li><a href="products.jsp">Products</a></li>
-                        <li><a href="about.jsp">About</a></li>
-                        <li><a href="contact.jsp">Contact</a></li>
-=======
         <!--grids-->
         <!-- footer -->
         <div class="footer">
@@ -524,7 +480,6 @@
                         <li><a href="#" class="pinterest">
                                 <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                                 <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
->>>>>>> b2f401994416328c875d12bbb779c794605e5e44
                     </ul>
                 </div>
                 <div class="col-md-9 footer-right">
@@ -533,8 +488,8 @@
                             <h4>Our <span>Information</span> </h4>
                             <ul>
                                 <li><a href="index.jsp">Home</a></li>                        
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="about.jsp">About</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
 
@@ -600,21 +555,21 @@
                                         <div class="sign-up">
                                             <h4>Email :</h4>
                                             <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                this.value = 'Type here';
-                                            }" required="">	
+                                                        this.value = 'Type here';
+                                                    }" required="">	
                                         </div>
                                         <div class="sign-up">
                                             <h4>Password :</h4>
                                             <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                this.value = 'Password';
-                                            }" required="">
+                                                        this.value = 'Password';
+                                                    }" required="">
 
                                         </div>
                                         <div class="sign-up">
                                             <h4>Re-type Password :</h4>
                                             <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                this.value = 'Password';
-                                            }" required="">
+                                                        this.value = 'Password';
+                                                    }" required="">
 
                                         </div>
                                         <div class="sign-up">
@@ -629,14 +584,14 @@
                                         <div class="sign-in">
                                             <h4>Email :</h4>
                                             <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                this.value = 'Type here';
-                                            }" required="">	
+                                                        this.value = 'Type here';
+                                                    }" required="">	
                                         </div>
                                         <div class="sign-in">
                                             <h4>Password :</h4>
                                             <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                this.value = 'Password';
-                                            }" required="">
+                                                        this.value = 'Password';
+                                                    }" required="">
                                             <a href="#">Forgot password?</a>
                                         </div>
                                         <div class="single-bottom">
