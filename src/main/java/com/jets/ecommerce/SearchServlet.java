@@ -63,7 +63,7 @@ public class SearchServlet extends HttpServlet {
         String search = request.getParameter("search");
         productDAOInterface = ProductManager.getProductManager();
         ArrayList<Product> products = productDAOInterface.searchProducts(search);
-        request.setAttribute(search, products);
+        request.setAttribute("products", products);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

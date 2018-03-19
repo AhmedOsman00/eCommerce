@@ -38,14 +38,14 @@ public class UserDAOImp implements UserDAOInt {
     }
 
     @Override
-    public User selectUser(String username, String email) {
+    public User selectUser(String email, String password) {
         User user = null;
         if (session != null) {
             try {
-                String hql = "from User where userName=:username and userEmail=:email";
+                String hql = "from User where userEmail=:email and userPassword=:password";
                 Query query = session.createQuery(hql);
-                query.setParameter("username", username);
                 query.setParameter("email", email);
+                query.setParameter("password", password);
                 List<User> list = query.list();
                 if (list.size() != 0) {
                     System.out.println("user :: found");

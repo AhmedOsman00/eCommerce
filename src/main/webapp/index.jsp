@@ -33,6 +33,7 @@
     <body>
         <!-- header -->
         <script>
+           
 
             var rTwo = null;
             function submitF() {
@@ -57,7 +58,7 @@
                     if (rTwo.responseText === "InValid") {
                         document.getElementById("inValidValue").innerHTML = rTwo.responseText;
                     } else {
-                        window.location.replace("index.jsp");
+                        window.location.replace("ProductsServlet");
                     }
                 }
             }
@@ -68,14 +69,13 @@
                     <c:if test="${empty sessionScope.userInformation}">
                         <li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Sign In </a></li>
                         <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>                       
                         </c:if>
                         <c:if test="${!empty sessionScope.userInformation}">
-                        <li> <a href="about.jsp"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
-                        <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+                        <li> <a href="profile.html" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
+                        <li onclick="signUpModalStarted();"> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
-                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="logoutServelet">Log Out</a></li>
                         </c:if>
                 </ul>
             </div>
@@ -93,7 +93,7 @@
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 logo_agile">
-                    <h1><a href="index.jsp"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+                    <h1><a href="ProductsServlet><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 agileits-social top_content">
@@ -138,9 +138,12 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>                                   
+                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="ProductsServlet">Home <span class="sr-only">(current)</span></a></li>                                   
                                     <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
                                     <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
+                                        <c:if test="${sessionScope.userInformation.type.equals('admin')}">
+                                        <li class=" menu__item"><a class="menu__link" href="addProduct.html">Add Product</a></li>
+                                        </c:if>
                                 </ul>
                             </div>
                         </div>
@@ -173,13 +176,13 @@
                             <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
                             <form>
                                 <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Name" required="" id="t1">
-                                    <label>Name</label>
+                                    <input type="email" name="Email" required="" id="t1">
+                                    <label>Email</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input">
-                                    <input type="email" name="Email" required="" id="t2"> 
-                                    <label>Email</label>
+                                    <input type="password" name="pass" required="" id="t2"> 
+                                    <label>Password</label>
                                     <span></span>
                                 </div> 
                                 <input type="button" value="Sign In" onclick="submitF();">
@@ -355,64 +358,56 @@
         </div> 
         <!-- /new_arrivals --> 
         <div class="new_arrivals_agile_w3ls_info"> 
-            <div class="container">
-                <h3 class="wthree_text_info">New <span>Arrivals</span></h3>		
-                <div id="horizontalTab">
-                    <ul class="resp-tabs-list">
-                        <li></li>
-                    </ul>
-                    <div class="resp-tabs-container">
-                        <!--/tab_one-->
-                        <div class="tab1">
-                            <c:forEach items="${products}" var="product" varStatus="count" >
-                                <div class="col-md-3 product-men">
-                                    <div class="men-pro-item simpleCart_shelfItem">
-                                        <div class="men-thumb-item">
-                                            <img src="${product.productImage}" alt="" class="pro-image-front">
-                                            <img src="${product.productImage}" alt="" class="pro-image-back">
-                                            <div class="men-cart-pro">
-                                                <div class="inner-men-cart-pro">
-                                                    <form id="${count.index}"  method="POST" action="ProductsServlet">
-                                                        <a href="javascript:document.getElementById('${count.index}').submit()" class="link-product-add-cart">Quick View</a>
-                                                </div>
+            <div class="container">                	                
+                <div class="resp-tabs-container">
+                    <!--/tab_one-->
+                    <div class="tab1">
+                        <c:forEach items="${products}" var="product" varStatus="count" >
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="${product.productImage}" alt="" class="pro-image-front">
+                                        <img src="${product.productImage}" alt="" class="pro-image-back">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <form id="${count.index}"  method="POST" action="ProductsServlet">
+                                                    <a href="javascript:document.getElementById('${count.index}').submit()" class="link-product-add-cart">Quick View</a>
                                             </div>
-                                            <span class="product-new-top">New</span>                                        
+                                        </div>                                                                       
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <input type="hidden" name="id" value="${product.productId}"/>
+                                        <h4><a href="javascript:document.getElementById('${count.index}').submit()">${product.productName}</a></h4>
+                                        </form>
+                                        <div class="info-product-price">
+                                            <span class="item_price">$${product.productPrice}</span>
                                         </div>
-                                        <div class="item-info-product ">
-                                            <input type="hidden" name="id" value="${product.productId}"/>
-                                            <h4><a href="javascript:document.getElementById('${count.index}').submit()">${product.productName}</a></h4>
+                                       <c:if test="${sessionScope.userInformation.type.equals('user')}"> 
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form action="#" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="business" value=" " />
+                                                    <input type="hidden" name="item_name" value="Men's Black Jeans" />
+                                                    <input type="hidden" name="amount" value="30.99" />
+                                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                                    <input type="hidden" name="currency_code" value="USD" />
+                                                    <input type="hidden" name="return" value=" " />
+                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                </fieldset>
                                             </form>
-                                            <div class="info-product-price">
-                                                <span class="item_price">$${product.productPrice}</span>
-                                            </div>
-                                            <c:if test="${sessionScope.userInformation.type.equals('user')}">
-                                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                                    <form action="#" method="post">
-                                                        <fieldset>
-                                                            <input type="hidden" name="cmd" value="_cart" />
-                                                            <input type="hidden" name="add" value="1" />
-                                                            <input type="hidden" name="business" value=" " />
-                                                            <input type="hidden" name="item_name" value="Men's Black Jeans" />
-                                                            <input type="hidden" name="amount" value="30.99" />
-                                                            <input type="hidden" name="discount_amount" value="1.00" />
-                                                            <input type="hidden" name="currency_code" value="USD" />
-                                                            <input type="hidden" name="return" value=" " />
-                                                            <input type="hidden" name="cancel_return" value=" " />
-                                                            <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                        </fieldset>
-                                                    </form>
-                                                </div>
-
-                                            </div>
-                                        </c:if>
+                                        </div>
+                                       </c:if>
                                     </div>
                                 </div>
-                            </c:forEach>
-                            <div class="clearfix"></div>
-                        </div>
-                        <!--//tab_one-->                                               
+                            </div>
+                        </c:forEach>
+                        <div class="clearfix"></div>
                     </div>
-                </div>	
+                    <!--//tab_one-->                                               
+                </div>                	
             </div>
         </div>       
         <!--/grids-->
@@ -487,7 +482,7 @@
                         <div class="col-md-4 sign-gd">
                             <h4>Our <span>Information</span> </h4>
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>                        
+                                <li><a href="ProductsServlet">Home</a></li>                        
                                 <li><a href="about.jsp">About</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>

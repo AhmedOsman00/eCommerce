@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 logo_agile">
-                    <h1><a href="index.jsp"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+                    <h1><a href="ProductsServlet"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 agileits-social top_content">
@@ -103,7 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>					
+                                    <li class="active menu__item"><a class="menu__link" href="ProductsServlet">Home <span class="sr-only">(current)</span></a></li>					
                                     <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
                                     <li class=" menu__item menu__item--current"><a class="menu__link" href="contact.jsp">Contact</a></li>
                                 </ul>
@@ -248,7 +248,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="agile_inner_breadcrumb">
 
                         <ul class="w3_short">
-                            <li><a href="index.jsp">Home</a><i>|</i></li>
+                            <li><a href="ProductsServlet">Home</a><i>|</i></li>
                             <li>Contact</li>
                         </ul>
                     </div>
@@ -414,7 +414,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="footer">
             <div class="footer_agile_inner_info_w3l">
                 <div class="col-md-3 footer-left">
-                    <h2><a href="index.jsp"><span>E</span>lite Shoppy </a></h2>
+                    <h2><a href="ProductsServlet"><span>E</span>lite Shoppy </a></h2>
                     <p>Elite Shoppy is a website for e-commerce</p>
                     <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
                         <li><a href="#" class="facebook">
@@ -436,7 +436,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-md-4 sign-gd">
                             <h4>Our <span>Information</span> </h4>
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>						
+                                <li><a href="ProductsServlet">Home</a></li>						
                                 <li><a href="about.jsp">About</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>

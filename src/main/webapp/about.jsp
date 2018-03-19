@@ -36,13 +36,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
                         <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-                        </c:if>
-                        <c:if test="${!empty sessionScope.userInformation}">
+                    </c:if>
+                    <c:if test="${!empty sessionScope.userInformation}">
                         <li> <a href="about.jsp"><i class="fa fa-unlock-alt" aria-hidden="true" ></i> Welcome ${sessionScope.userInformation.userName} </a></li>
                         <li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
                         <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
-                        </c:if>
+                    </c:if>
                 </ul>
             </div>
         </div>
@@ -59,43 +59,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 logo_agile">
-                    <h1><a href="index.jsp"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+                    <h1><a href="ProductsServlet"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
                 </div>
                 <!-- header-bot -->
-                <div class="header-bot">
-                    <div class="header-bot_inner_wthreeinfo_header_mid">
-                        <div class="col-md-4 header-middle">
-                            <form action="#" method="post">
-                                <input type="search" name="search" placeholder="Search here..." required="">
-                                <input type="submit" value=" ">
-                                <div class="clearfix"></div>
-                            </form>
-                        </div>
-                        <!-- header-bot -->
-                        <div class="col-md-4 logo_agile">
-                            <h1><a href="index.html"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
-                        </div>
-                        <!-- header-bot -->
-                        <div class="col-md-4 agileits-social top_content">
-                            <ul class="social-nav model-3d-0 footer-social w3_agile_social">
-                                <li class="share">Share On : </li>
-                                <li><a href="#" class="facebook">
-                                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="twitter"> 
-                                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="instagram">
-                                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="pinterest">
-                                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+                <div class="col-md-4 agileits-social top_content">
+                    <ul class="social-nav model-3d-0 footer-social w3_agile_social">
+                        <li class="share">Share On : </li>
+                        <li><a href="#" class="facebook">
+                                <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="twitter"> 
+                                <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="instagram">
+                                <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="pinterest">
+                                <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+                    </ul>
+
+
+
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
         <!-- //header-bot -->
@@ -117,7 +104,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>                                      
+                                    <li class="active menu__item"><a class="menu__link" href="ProductsServlet">Home <span class="sr-only">(current)</span></a></li>                                   
                                     <li class=" menu__item menu__item--current"><a class="menu__link" href="about.jsp">About</a></li>
                                     <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
                                 </ul>
@@ -179,194 +166,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </ul>
                             <div class="clearfix"></div>
                             <p><a href="#" data-toggle="modal" data-target="#myModal2" > Don't have an account?</a></p>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <!-- //banner-top -->
-            <!-- Modal1 -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body modal-body-sub_agile">
-                            <div class="col-md-8 modal_body_left modal_body_left1">
-                                <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
-                                <form action="#" method="post">
-                                    <div class="styled-input agile-styled-input-top">
-                                        <input type="text" name="Name" required="">
-                                        <label>Name</label>
-                                        <span></span>
-                                    </div>
-                                    <div class="styled-input">
-                                        <input type="email" name="Email" required=""> 
-                                        <label>Email</label>
-                                        <span></span>
-                                    </div> 
-                                    <input type="submit" value="Sign In">
-                                </form>
-                                <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-                                    <li><a href="#" class="facebook">
-                                            <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-                                    <li><a href="#" class="twitter"> 
-                                            <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-                                    <li><a href="#" class="instagram">
-                                            <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-                                    <li><a href="#" class="pinterest">
-                                            <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <p><a href="#" data-toggle="modal" data-target="#myModal2" > Don't have an account?</a></p>
 
-                            </div>
-                            <div class="col-md-4 modal_body_right modal_body_right1">
-                                <img src="images/log_pic.jpg" alt=" "/>
-                            </div>
-                            <div class="clearfix"></div>
                         </div>
+                        <div class="col-md-4 modal_body_right modal_body_right1">
+                            <img src="images/log_pic.jpg" alt=" "/>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <!-- //Modal content-->
                 </div>
+                <!-- //Modal content-->
             </div>
-            <!-- //Modal1 -->
-            <!-- Modal2 -->
-            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body modal-body-sub_agile">
-                            <div class="col-md-8 modal_body_left modal_body_left1">
-                                <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-                                <form action="#" method="post">
-                                    <div class="styled-input agile-styled-input-top">
-                                        <input type="text" name="Name" required="">
-                                        <label>Name</label>
-                                        <span></span>
-                                    </div>
-                                    <div class="styled-input">
-                                        <input type="email" name="Email" required=""> 
-                                        <label>Email</label>
-                                        <span></span>
-                                    </div> 
-                                    <div class="styled-input">
-                                        <input type="password" name="password" required=""> 
-                                        <label>Password</label>
-                                        <span></span>
-                                    </div> 
-                                    <div class="styled-input">
-                                        <input type="password" name="Confirm Password" required=""> 
-                                        <label>Confirm Password</label>
-                                        <span></span>
-                                    </div> 
-                                    <input type="submit" value="Sign Up">
-                                </form>
-                                <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-                                    <li><a href="#" class="facebook">
-                                            <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-                                    <li><a href="#" class="twitter"> 
-                                            <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-                                    <li><a href="#" class="instagram">
-                                            <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-                                    <li><a href="#" class="pinterest">
-                                            <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                            <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <p><a href="#">By clicking register, I agree to your terms</a></p>
-
-                                <<<<<<< HEAD:src/main/webapp/about.jsp
-                                <ul class="w3_short">
-                                    <li><a href="index.jsp">Home</a><i>|</i></li>
-                                    <li>About</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--//w3_short-->
+        </div>
+        <!-- //Modal1 -->
+        <!-- Modal2 -->
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                </div>
-                <!-- /banner_bottom_agile_info -->
-                <div class="banner_bottom_agile_info">
-                    <div class="container">
-                        <div class="agile_ab_w3ls_info">
-                            <div class="col-md-6 ab_pic_w3ls">
-                                <img src="images/ab_pic.jpg" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="col-md-6 ab_pic_w3ls_text_info">
-                                <h5>About Our Elite <span> Shoppy</span> </h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor..</p>
-                                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>  
-                    </div> 
-                </div>
-                <!-- team -->	
-                <!--/grids-->
-                <div class="coupons">
-                    <div class="coupons-grids text-center">
-                        <div class="w3layouts_mail_grid">
-                            <div class="col-md-3 w3layouts_mail_grid_left">
-                                <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                                    <i class="fa fa-truck" aria-hidden="true"></i>
+                    <div class="modal-body modal-body-sub_agile">
+                        <div class="col-md-8 modal_body_left modal_body_left1">
+                            <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
+                            <form action="#" method="post">
+                                <div class="styled-input agile-styled-input-top">
+                                    <input type="text" name="Name" required="">
+                                    <label>Name</label>
+                                    <span></span>
                                 </div>
-                                <div class="w3layouts_mail_grid_left2">
-                                    <h3>FREE SHIPPING</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 w3layouts_mail_grid_left">
-                                <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                                    <i class="fa fa-headphones" aria-hidden="true"></i>
-                                </div>
-                                <div class="w3layouts_mail_grid_left2">
-                                    <h3>24/7 SUPPORT</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 w3layouts_mail_grid_left">
-                                <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                </div>
-                                <div class="w3layouts_mail_grid_left2">
-                                    <h3>MONEY BACK GUARANTEE</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 w3layouts_mail_grid_left">
-                                <div class="w3layouts_mail_grid_left1 hvr-radial-out">
-                                    <i class="fa fa-gift" aria-hidden="true"></i>
-                                </div>
-                                <div class="w3layouts_mail_grid_left2">
-                                    <h3>FREE GIFT COUPONS</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
-                <!--grids-->
-                <!-- footer -->
-                <div class="footer">
-                    <div class="footer_agile_inner_info_w3l">
-                        <div class="col-md-3 footer-left">
-                            <h2><a href="index.jsp"><span>E</span>lite Shoppy </a></h2>
-                            <p>Elite Shoppy is a website for e-commerce</p>
-                            <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+                                <div class="styled-input">
+                                    <input type="email" name="Email" required=""> 
+                                    <label>Email</label>
+                                    <span></span>
+                                </div> 
+                                <div class="styled-input">
+                                    <input type="password" name="password" required=""> 
+                                    <label>Password</label>
+                                    <span></span>
+                                </div> 
+                                <div class="styled-input">
+                                    <input type="password" name="Confirm Password" required=""> 
+                                    <label>Confirm Password</label>
+                                    <span></span>
+                                </div> 
+                                <input type="submit" value="Sign Up">
+                            </form>
+                            <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
                                 <li><a href="#" class="facebook">
                                         <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                                         <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
@@ -380,59 +226,131 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                                         <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
                             </ul>
+                            <div class="clearfix"></div>
+                            <p><a href="#">By clicking register, I agree to your terms</a></p>
+
                         </div>
-                        <div class="col-md-9 footer-right">
-                            <div class="sign-grds">
-                                <div class="col-md-4 sign-gd">
-                                    <h4>Our <span>Information</span> </h4>
-                                    <ul>
-                                        <li><a href="index.jsp">Home</a></li>
-                                        <li><a href="about.jsp">Products</a></li>
-                                        <li><a href="about.jsp">About</a></li>
-                                        <li><a href="contact.jsp">Contact</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-5 sign-gd-two">
-                                    <h4>Store <span>Information</span></h4>
-                                    <div class="w3-address">
-                                        <div class="w3-address-grid">
-                                            <div class="w3-address-left">
-                                                <i class="fa fa-phone" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="w3-address-right">
-                                                <h6>Phone Number</h6>
-                                                <p>+1 234 567 8901</p>
-                                            </div>
-                                            <div class="clearfix"> </div>
-                                        </div>
-                                        <div class="w3-address-grid">
-                                            <div class="w3-address-left">
-                                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="w3-address-right">
-                                                <h6>Email Address</h6>
-                                                <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
-                                            </div>
-                                            <div class="clearfix"> </div>
-                                        </div>
-                                        <div class="w3-address-grid">
-                                            <div class="w3-address-left">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="w3-address-right">
-                                                <h6>Location</h6>
-                                                <p>Broome St, NY 10002,California, USA. 
-
-                                                </p>
-                                            </div>
-                                            <div class="clearfix"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                        <div class="col-md-4 modal_body_right modal_body_right1">
+                            <img src="images/log_pic.jpg" alt=" "/>
                         </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- //Modal content-->
+            </div>
+        </div>
+        <!-- //Modal2 -->
+        <!-- /banner_bottom_agile_info -->
+        <div class="page-head_agile_info_w3l">
+            <div class="container">
+                <h3>About <span>Us </span></h3>
+                <!--/w3_short-->
+                <div class="services-breadcrumb">
+                    <div class="agile_inner_breadcrumb">
+
+                        <ul class="w3_short">
+                            <li><a href="ProductsServlet">Home</a><i>|</i></li>
+                            <li>About</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--//w3_short-->
+            </div>
+        </div>
+        <!-- /banner_bottom_agile_info -->
+        <div class="banner_bottom_agile_info">
+            <div class="container">
+                <div class="agile_ab_w3ls_info">
+                    <div class="col-md-6 ab_pic_w3ls">
+                        <img src="images/ab_pic.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="col-md-6 ab_pic_w3ls_text_info">
+                        <h5>About Our Elite <span> Shoppy</span> </h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor..</p>
+                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>  
+            </div> 
+        </div>
+        <!--/grids-->
+        <div class="coupons">
+            <div class="coupons-grids text-center">
+                <div class="w3layouts_mail_grid">
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>FREE SHIPPING</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-headphones" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>24/7 SUPPORT</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>MONEY BACK GUARANTEE</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 w3layouts_mail_grid_left">
+                        <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                        </div>
+                        <div class="w3layouts_mail_grid_left2">
+                            <h3>FREE GIFT COUPONS</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+            </div>
+        </div>
+        <!--grids-->
+        <!-- footer -->
+        <div class="footer">
+            <div class="footer_agile_inner_info_w3l">
+                <div class="col-md-3 footer-left">
+                    <h2><a href="ProductsServlet"><span>E</span>lite Shoppy </a></h2>
+                    <p>Elite Shoppy is a website for e-commerce</p>
+                    <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+                        <li><a href="#" class="facebook">
+                                <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="twitter"> 
+                                <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="instagram">
+                                <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                        <li><a href="#" class="pinterest">
+                                <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9 footer-right">
+                    <div class="sign-grds">
+                        <div class="col-md-4 sign-gd">
+                            <h4>Our <span>Information</span> </h4>
+                            <ul>
+                                <li><a href="ProductsServlet">Home</a></li>
+                                <li><a href="about.jsp">About</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
+                            </ul>
+                        </div>
+
                         <div class="col-md-5 sign-gd-two">
                             <h4>Store <span>Information</span></h4>
                             <div class="w3-address">

@@ -75,12 +75,7 @@ public class AddProductServlet extends HttpServlet {
            String productDiscription=request.getParameter("productDescription");
            String productPrice=request.getParameter("productPrice");
            String productQuantity=request.getParameter("productQuan");
-           String productImage=request.getParameter("productImage");
-           System.out.println(productQuantity+"productQuantity");
-           System.out.println(productName+"productName");
-           System.out.println(productPrice+"productPrice");
-           System.out.println(productImage+"productImage");
-           System.out.println(productDiscription+"productDiscription");   
+           String productImage=request.getParameter("productImage");   
            Product p =new Product();
            p.setProducctDescription(productDiscription);
            p.setProductName(productName);
@@ -89,7 +84,8 @@ public class AddProductServlet extends HttpServlet {
            p.setProductImage(productImage);
            ProductManager  productManager = ProductManager.getProductManager();
            productManager.insertProduct(p);
-           request.getRequestDispatcher("ProductsServlet").forward(request, response);
+          
+           response.sendRedirect("ProductsServlet");
            
     }
 

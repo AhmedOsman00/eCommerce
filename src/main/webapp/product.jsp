@@ -53,7 +53,7 @@
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 logo_agile">
-                    <h1><a href="index.jsp"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+                    <h1><a href="ProductsServlet"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 agileits-social top_content">
@@ -98,89 +98,10 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="ProductsServlet">Home <span class="sr-only">(current)</span></a></li>
                                     <li class=" menu__item"><a class="menu__link" href="about.jsp">Products</a></li>
                                     <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
-                                        <c:if test="${sessionScope.userInformation.type.equals('admin')}">
-                                        <li class=" menu__item"><a class="menu__link" href="addProduct.html">Add Product</a></li>
-                                        </c:if>
-                                    <li class="active menu__item"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
-                                    <li class="dropdown menu__item">
-                                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men's wear <span class="caret"></span></a>
-                                        <ul class="dropdown-menu multi-column columns-3">
-                                            <div class="agile_inner_drop_nav_info">
-                                                <div class="col-sm-6 multi-gd-img1 multi-gd-text ">
-                                                    <a href="mens.html"><img src="images/top2.jpg" alt=" "/></a>
-                                                </div>
-                                                <div class="col-sm-3 multi-gd-img">
-                                                    <ul class="multi-column-dropdown">
-                                                        <li><a href="mens.html">Clothing</a></li>
-                                                        <li><a href="mens.html">Wallets</a></li>
-                                                        <li><a href="mens.html">Footwear</a></li>
-                                                        <li><a href="mens.html">Watches</a></li>
-                                                        <li><a href="mens.html">Accessories</a></li>
-                                                        <li><a href="mens.html">Bags</a></li>
-                                                        <li><a href="mens.html">Caps & Hats</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-sm-3 multi-gd-img">
-                                                    <ul class="multi-column-dropdown">
-                                                        <li><a href="mens.html">Jewellery</a></li>
-                                                        <li><a href="mens.html">Sunglasses</a></li>
-                                                        <li><a href="mens.html">Perfumes</a></li>
-                                                        <li><a href="mens.html">Beauty</a></li>
-                                                        <li><a href="mens.html">Shirts</a></li>
-                                                        <li><a href="mens.html">Sunglasses</a></li>
-                                                        <li><a href="mens.html">Swimwear</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown menu__item">
-                                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Women's wear <span class="caret"></span></a>
-                                        <ul class="dropdown-menu multi-column columns-3">
-                                            <div class="agile_inner_drop_nav_info">
-                                                <div class="col-sm-3 multi-gd-img">
-                                                    <ul class="multi-column-dropdown">
-                                                        <li><a href="womens.html">Clothing</a></li>
-                                                        <li><a href="womens.html">Wallets</a></li>
-                                                        <li><a href="womens.html">Footwear</a></li>
-                                                        <li><a href="womens.html">Watches</a></li>
-                                                        <li><a href="womens.html">Accessories</a></li>
-                                                        <li><a href="womens.html">Bags</a></li>
-                                                        <li><a href="womens.html">Caps & Hats</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-sm-3 multi-gd-img">
-                                                    <ul class="multi-column-dropdown">
-                                                        <li><a href="womens.html">Jewellery</a></li>
-                                                        <li><a href="womens.html">Sunglasses</a></li>
-                                                        <li><a href="womens.html">Perfumes</a></li>
-                                                        <li><a href="womens.html">Beauty</a></li>
-                                                        <li><a href="womens.html">Shirts</a></li>
-                                                        <li><a href="womens.html">Sunglasses</a></li>
-                                                        <li><a href="womens.html">Swimwear</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-sm-6 multi-gd-img multi-gd-text ">
-                                                    <a href="womens.html"><img src="images/top1.jpg" alt=" "/></a>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </ul>
-                                    </li>
-                                    <li class="menu__item dropdown">
-                                        <a class="menu__link" href="#" class="dropdown-toggle" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
-                                        <ul class="dropdown-menu agile_short_dropdown">
-                                            <li><a href="icons.html">Web Icons</a></li>
-                                            <li><a href="typography.html">Typography</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>                                                                       
                                 </ul>
                             </div>
                         </div>
@@ -318,15 +239,12 @@
         <!-- /banner_bottom_agile_info -->
         <div class="page-head_agile_info_w3l">
             <div class="container">
-                <h3>Single <span>Page </span></h3>
+
                 <!--/w3_short-->
                 <div class="services-breadcrumb">
                     <div class="agile_inner_breadcrumb">
 
-                        <ul class="w3_short">
-                            <li><a href="index.html">Home</a><i>|</i></li>
-                            <li>Single Page</li>
-                        </ul>
+
                     </div>
                 </div>
                 <!--//w3_short-->
@@ -372,7 +290,7 @@
 
                     </div>
 
-
+ <c:if test="${sessionScope.userInformation.type.equals('user')}">
                     <div class="occasion-cart">
                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
                             <form action="#" method="post">
@@ -392,6 +310,8 @@
                             </form>
 
                         </div>
+                    </c:if>
+                        <c:if test="${sessionScope.userInformation.type.equals('admin')}">
                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
                             <form action="EditDeleteServlet" method="GET">
                                 <fieldset>
@@ -408,6 +328,7 @@
                                 </fieldset>
                             </form>
                         </div>
+                        </c:if>
                     </div>
                     <ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
                         <li class="share">Share On : </li>
@@ -505,7 +426,7 @@
         <div class="footer">
             <div class="footer_agile_inner_info_w3l">
                 <div class="col-md-3 footer-left">
-                    <h2><a href="index.html"><span>E</span>lite Shoppy </a></h2>
+                    <h2><a href="ProductsServlet"><span>E</span>lite Shoppy </a></h2>
                     <p>Elite Shoppy is a website for e-commerce</p>
                     <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
                         <li><a href="#" class="facebook">
@@ -527,7 +448,7 @@
                         <div class="col-md-4 sign-gd">
                             <h4>Our <span>Information</span> </h4>
                             <ul>
-                                <li><a href="index.jsp">Home</a></li>                                
+                                <li><a href="ProductsServlet">Home</a></li>                                
                                 <li><a href="about.jsp">About</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                             </ul>
