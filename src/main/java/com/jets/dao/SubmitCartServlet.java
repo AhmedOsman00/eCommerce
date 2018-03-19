@@ -71,22 +71,22 @@ public class SubmitCartServlet extends HttpServlet {
         session = productDAOInterface.getCurrentSession();
         userDAOImp = UserDAOImp.getUserDAO();
         userSession = userDAOImp.getCurrentSession();
-       User user = (User) userSession.get(User.class, userID);
-        
+        User user = (User) userSession.get(User.class, userID);
+
         for (int i = 0; i < length; i++) {
             Integer id = Integer.parseInt(request.getParameter("id" + (i + 1)));
             Integer quantity = Integer.parseInt(request.getParameter("qty" + (i + 1)));
             Product product = (Product) session.get(Product.class, id);
             //check quantity
             if (product.getProductQuantity() <= quantity) {
-                product.setProductQuantity(product.getProductQuantity()-quantity);
+                product.setProductQuantity(product.getProductQuantity() - quantity);
             }
             //sum of prices
-            sum = sum + product.getProductPrice();            
+            sum = sum + product.getProductPrice();
         }
         //check credit
-        if(user.getUserCreditLimt() <= sum){
-            user.setUserCreditLimt(user.getUserCreditLimt()-sum);
+        if (user.getUserCreditLimt() <= sum) {
+            user.setUserCreditLimt(user.getUserCreditLimt() - sum);
         }
     }
 
