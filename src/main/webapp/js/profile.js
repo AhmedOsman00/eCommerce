@@ -22,6 +22,45 @@ var userAddressDiv;
 var oldUserAddress;
 var newUserAddress;
 
+var chargeReq = null;
+var editUserDataReq = null;
+var currentUserId;
+
+function chargeCreditCard(userId){
+    //freeze charge div
+    
+    var creditCode = document.getElementById("creditCode").value;
+    
+    if (window.XMLHttpRequest)
+            chargeReq = new XMLHttpRequest();
+        else
+            chargeReq = new ActiveXObject(Microsoft.XMLHTTP);
+        
+    chargeReq.onreadystatechange = handleChargeCredit;
+
+    url = "CreditChargeServlet?code=" + creditCode + "&userId=" + userId + "&timeStamp=" + new Date().getTime();
+    chargeReq.open("POST", url, true);
+    chargeReq.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    chargeReq.send(null);
+}
+
+function handleChargeCredit() {
+    chargeMsg = document.getElementById("chargeMsg");
+    
+    if (chargeReq.readyState == 4 && chargeReq.status == 200) {
+
+        if (chargeReq.responseText == "correct") {
+            chargeMsg.className = "chargeResultCorrect";
+            chargeMsg.innerHTML = "Succeeded!"
+            chargeMsg.style.visibility = "visible";
+        } else {
+            chargeMsg.className = "chargeResultWrong";
+            chargeMsg.innerHTML = "Failed"
+            chargeMsg.style.visibility = "visible";
+        }
+    }
+}
+
 window.onload = function () {
     userNameDiv = document.getElementById("userNameDiv");
     oldUserName = document.getElementById("userName");
@@ -48,8 +87,9 @@ window.onload = function () {
     newUserAddress = document.createElement("INPUT");
 }
 
-function editOrSaveProfileData() {
+function editOrSaveProfileData(id) {
     var profileBtnValue = document.getElementById("profileBtn").value;
+    currentUserId = id;
     if (profileBtnValue == "Edit Profile")
         editUserProfile();
     else if (profileBtnValue == "Save Changes")
@@ -62,6 +102,8 @@ function editUserProfile() {
     editUserJob();
     editUserEmail();
     editUserBirthday();
+    editUserAddress();
+    editUserPassword();
 }
 
 function editUserName() {
@@ -95,6 +137,70 @@ function editUserBirthday() {
     newUserBirthday.value = oldUserBirthday.innerHTML;
     userBirthdayDiv.replaceChild(newUserBirthday, oldUserBirthday);
 }
+
+function editUserAddress() {
+    newUserAddress.setAttribute("type", "text");
+    newUserAddress.className = "newInput";
+    newUserAddress.id = "newUserAddress";    
+    newUserAddress.value = oldUserAddress.innerHTML;
+    userAddressDiv.replaceChild(newUserAddress, oldUserAddress);
+}
+
+function editUserPassword() {
+    newUserPassword.setAttribute("type", "password");
+    newUserPassword.className = "newInput";
+    newUserPassword.id = "newUserPassword";    
+    newUserPassword.value = oldUserAddress.innerHTML;
+    userPasswordDiv.replaceChild(newUserPassword, oldUserPassword);
+}
 function saveUserProfileChanges() {
-    alert("Save Data");
+    //validate data
+
+    //update session
+    
+    //unfreeze charge div
+    
+    //back to showing data
+    userNameValue = newUserName.value;
+    userJobValue = newUserJob.value;
+    userEmailValue = newUserEmail.value;
+    userPasswordValue = newUserPassword.value;
+    userBirthdayValue = newUserBirthday.value;
+    userAddressValue = newUserAddress.value;
+    
+    document.getElementById("profileBtn").value = "Edit Profile";
+    userJobDiv.replaceChild(oldUserJob, newUserJob);
+    userNameDiv.replaceChild(oldUserName, newUserName);
+    userEmailDiv.replaceChild(oldUserEmail, newUserEmail);
+    userPasswordDiv.replaceChild(oldUserPassword, newUserPassword);
+    userAddressDiv.replaceChild(oldUserAddress, newUserAddress);
+    userBirthdayDiv.replaceChild(oldUserBirthday, newUserBirthday);    
+    
+    if (window.XMLHttpRequest)
+            editUserDataReq = new XMLHttpRequest();
+        else
+            editUserDataReq = new ActiveXObject(Microsoft.XMLHTTP);
+        
+    editUserDataReq.onreadystatechange = handleuserProfileChanges;
+
+    url = "EditUserProfileServlet?userId=" + currentUserId + "&userName=" + userNameValue + 
+            "&userJob=" + userJobValue + "&userEmail=" + userEmailValue 
+            + "&userPassword=" + userPasswordValue + "&userbirthday=" + userBirthdayValue 
+            + "&userAddress=" + userAddressValue + "&timeStamp=" + new Date().getTime();
+    editUserDataReq.open("POST", url, true);
+    editUserDataReq.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    editUserDataReq.send(null);
+}
+
+function handleuserProfileChanges() {
+    editUserDataReq = document.getElementById("chargeMsg");
+    
+    if (editUserDataReq.readyState == 4 && chargeReq.status == 200) {
+
+        if (editUserDataReq.responseText == "ok") {
+            alert("Ok");
+        } else {
+            alert("NOT Ok");
+        }
+    }
 }

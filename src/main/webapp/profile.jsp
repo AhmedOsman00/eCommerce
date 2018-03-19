@@ -133,8 +133,12 @@
         <div class="profileDiv">
 
             <br>
-            <input type="button" value="Edit Profile" id = "profileBtn" onclick="editOrSaveProfileData()">
 
+            <input type="text" placeholder="Enter the code here..." class="newInput" id="creditCode">
+            <input type="button" value="Charge" id = "chargeCreditBtn" onclick="chargeCreditCard(${sessionScope.userInformation.userId})">
+            <input type="button" value="Edit Profile" id = "profileBtn" onclick="editOrSaveProfileData(${sessionScope.userInformation.userId})">
+            <br>
+            <div class="chargeResultCorrect" id="chargeMsg">charged successfully</div>
             <br>
             <center>
                 <br><br>
@@ -174,7 +178,7 @@
                         </span>
                     </div>
                     <br><br>
-                    
+
                     <div id="userCreditLimitDiv">
                         <b>Credit Limit:&nbsp;&nbsp;</b> 
                         <span id="userCreditLimit">
@@ -182,7 +186,7 @@
                         </span>
                     </div>
                     <br><br>
-                    
+
                 </h4>
 
             </center> 

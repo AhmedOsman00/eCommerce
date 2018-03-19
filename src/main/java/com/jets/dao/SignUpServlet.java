@@ -81,6 +81,8 @@ public class SignUpServlet extends HttpServlet {
             newUser.setUserBirthday(request.getParameter("birthday"));
             newUser.setUserJob(request.getParameter("job"));
             newUser.setAddress(request.getParameter("address"));
+            newUser.setGender("m");
+            newUser.setType("u");
             newUser.setUserCreditLimt(0.0);
             
             System.out.println(newUser.getUserName());

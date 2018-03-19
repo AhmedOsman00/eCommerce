@@ -16,6 +16,14 @@
         <servlet-name>SearchServlet</servlet-name>
         <servlet-class>com.jets.ecommerce.SearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreditChargeServlet</servlet-name>
+        <servlet-class>com.jets.dao.CreditChargeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUserProfileServlet</servlet-name>
+        <servlet-class>com.jets.dao.EditUserProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreditChargeServlet</servlet-name>
+        <url-pattern>/CreditChargeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUserProfileServlet</servlet-name>
+        <url-pattern>/EditUserProfileServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
