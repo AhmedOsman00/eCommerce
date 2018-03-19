@@ -91,7 +91,7 @@ function handleRTwo() {
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 logo_agile">
-                    <h1><a href="index.html"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+                    <h1><a href="index.jsp"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
                 </div>
                 <!-- header-bot -->
                 <div class="col-md-4 agileits-social top_content">
@@ -136,10 +136,13 @@ function handleRTwo() {
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav menu__list">
-                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">Products</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">Products</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
+                                    <c:if test="${sessionScope.userInformation.type.equals('admin')}">
+                                    <li class=" menu__item"><a class="menu__link" href="addProduct.html">Add Product</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                         </div>
@@ -399,10 +402,10 @@ function handleRTwo() {
                         <div class="col-md-4 sign-gd">
                             <h4>Our <span>Information</span> </h4>
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">Products</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="products.jsp">Products</a></li>
+                                <li><a href="about.jsp">About</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                             </ul>
                         </div>
 

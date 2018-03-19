@@ -40,7 +40,8 @@ public class ProductManager implements ProductDAOInterface {
     public void insertProduct(Product product) {
         session.beginTransaction();
         session.persist(product);
-        session.getTransaction().commit();     
+        session.getTransaction().commit();   
+        System.out.println("Insertion Producr Done");
     }
 
     @Override

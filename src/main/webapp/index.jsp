@@ -141,8 +141,8 @@
                                 <ul class="nav navbar-nav menu__list">
                                     <li class="active menu__item menu__item--current"><a class="menu__link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
                                     <li class=" menu__item"><a class="menu__link" href="products.jsp">Products</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
-                                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
+                                    <li class=" menu__item"><a class="menu__link" href="contact.jsp">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -385,6 +385,7 @@
                                             <span class="item_price">$45.99</span>
                                             <del>$69.71</del>
                                         </div>
+                                         <c:if test="${sessionScope.userInformation.type.equals('user')}">
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
                                             <form action="#" method="post">
                                                 <fieldset>
@@ -401,6 +402,7 @@
                                                 </fieldset>
                                             </form>
                                         </div>
+                                         </c:if>
                                     </div>
                                 </div>
                             </div>                            
@@ -489,8 +491,8 @@
                     <ul>
                         <li><a href="index.jsp">Home</a></li>
                         <li><a href="products.jsp">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.jsp">About</a></li>
+                        <li><a href="contact.jsp">Contact</a></li>
                     </ul>
                 </div>
 

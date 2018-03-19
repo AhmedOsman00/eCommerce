@@ -66,12 +66,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("valid :: login");
             HttpSession session = request.getSession(true);
             session.setAttribute("userInformation", user);
-<<<<<<< HEAD
-            //redirect to index.jsp
-          //  request.getRequestDispatcher("index.jsp").forward(request, response);
-=======
             request.getRequestDispatcher("index.jsp").forward(request, response);
->>>>>>> 3b2e2f1f74c9f40cb8fa1a77b8640e7b3f8087b7
          
        } else {                 
             System.out.println("invaild :: login");

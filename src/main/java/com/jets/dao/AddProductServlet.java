@@ -5,6 +5,7 @@
  */
 package com.jets.dao;
 
+import com.jets.ecommerce.ProductManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -72,6 +73,24 @@ public class AddProductServlet extends HttpServlet {
             throws ServletException, IOException {
            String productName=request.getParameter("productName");
            String productDiscription=request.getParameter("productDescription");
+           String productPrice=request.getParameter("productPrice");
+           String productQuantity=request.getParameter("productQuan");
+           String productImage=request.getParameter("productImage");
+           System.out.println(productQuantity+"productQuantity");
+           System.out.println(productName+"productName");
+           System.out.println(productPrice+"productPrice");
+           System.out.println(productImage+"productImage");
+           System.out.println(productDiscription+"productDiscription");   
+           Product p =new Product();
+           p.setProducctDescription(productDiscription);
+           p.setProductName(productName);
+           p.setProductPrice(Double.parseDouble(productPrice));
+           p.setProductQuantity(Integer.parseInt(productQuantity));
+           p.setProductImage(productImage);
+           ProductManager  productManager = ProductManager.getProductManager();
+           productManager.insertProduct(p);
+           request.getRequestDispatcher("ProductsServlet").forward(request, response);
+           
     }
 
     /**

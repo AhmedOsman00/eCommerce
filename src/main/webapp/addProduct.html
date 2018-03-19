@@ -9,25 +9,28 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/productForm.css">
     </head>
     <body>
-        <form action="AddProductServlet" method="post">
+        <form class="productForm" action="AddProductServlet" method="post">
             <fieldset>
                 <legend>Add Product:</legend>
                 Product name:<br>
                 <input type="text" name="productName"><br>
+                
+                
                 Product Price:<br>
                 <input type="text" name="productPrice"><br>
-                <br>
+      
+                
                  Product Description :<br>
                  <input type="text" name="productDescription"><br>
-                     Product quantity :<br>
-                     <input type="text" name=" productQuantity"><br>
-                <br>
-                <input type="text" name="productDescription"><br>
-                     Product Image :<br>
-                     <input type="text" name=" productImage"><br>
-                <br>
+                 
+                  Product Quantity :<br>
+                 <input type="text" name="productQuan"><br>
+                 
+                 Product image :<br>
+                 <input type="text" name="productImage"><br>
                 <input type="submit" value="Submit">
                
             </fieldset>
