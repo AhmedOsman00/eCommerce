@@ -3,6 +3,7 @@ var passwordValidatorReq = null;
 var confirmPasswordValidatorReq = null;
 var birthdayValidatorReq = null;
 var signUpUserReq = null;
+var signInRequest = null;
 
 var nameIsValid = false;
 var emailIsValid = false;
@@ -45,6 +46,8 @@ var newUserAddress;
 var chargeReq = null;
 var editUserDataReq = null;
 var currentUserId;
+
+var email, password;
 
 function showBdPlaceholder(birthdayId) {
     document.getElementById(birthdayId).placeholder = "dd-mm-yyyy";
@@ -352,8 +355,39 @@ function handleSignUpReq() {
 
         if (signUpUserReq.responseText == "valid") {
             console.log("Signed Up Successfully");
+            signInUser(email, password);
         } else {
             console.log("Failed to Sign Up");
+            document.getElementById("signUpRes").style.visibility = "visible";
+        }
+    }
+}
+
+
+
+function signInUser(userSignInEmail,userSignInPassword) {
+    
+    if (window.XMLHttpRequest) {
+        signInRequest = new XMLHttpRequest;
+    } else if (window.ActiveXObject)
+    {
+        signInRequest = new ActivXObject(Microsoft.XMLHTTP);
+    }
+    signInRequest.onreadystatechange = handleSignInReq;
+    url = "LoginServlet" + "?timeStamp=" + new Date().getTime();
+    signInRequest.open("POST", url, true);
+    signInRequest.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    signInRequest.send("&userName=" + userSignInEmail + "&userPass=" + userSignInPassword);
+    
+}
+
+function handleSignInReq() {
+    if (signInRequest.readyState == 4 && signInRequest.status == 200) {
+        console.log("ajax :: response");
+        if (signInRequest.responseText === "InValid") {
+            
+        } else {
+            window.location.replace("ProductsServlet");
         }
     }
 }
@@ -380,7 +414,7 @@ function handleChargeCredit() {
 
     if (chargeReq.readyState == 4 && chargeReq.status == 200) {
 
-       if(chargeReq.responseText == "wrong") {
+        if (chargeReq.responseText == "wrong") {
             chargeMsg.className = "chargeResultWrong";
             chargeMsg.innerHTML = "Failed"
             chargeMsg.style.visibility = "visible";
