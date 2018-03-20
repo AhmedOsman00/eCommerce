@@ -21,6 +21,7 @@ and open the template in the editor.
         <div style="margin: auto; width: 500px; padding: 40px">
         <form class="productForm" action="AddProductServlet" method="post">
             <fieldset>
+                <input type="hidden" name="id" value="${product.productId}"/>
                 <legend>Add Product:</legend>
                 Product name:<br>
                 <input type="text" name="productName" value="${product.productName}"><br>

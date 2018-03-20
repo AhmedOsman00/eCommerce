@@ -89,5 +89,20 @@ public class ProductManager implements ProductDAOInterface {
         }
         return products;
     }
+
+    @Override
+    public void updateProduct(Product editProduct) {
+        if(editProduct.getProductId() != null){
+            Product newproduct = selectProductById(editProduct.getProductId());
+            newproduct.setProductImage(editProduct.getProductImage());
+            newproduct.setProductName(editProduct.getProductName());
+            newproduct.setProducctDescription(editProduct.getProducctDescription());
+            newproduct.setProductPrice(editProduct.getProductPrice());
+            newproduct.setProductQuantity(editProduct.getProductQuantity());
+        }else{
+            insertProduct(editProduct);
+        }
+        
+    }
     
 }

@@ -31,17 +31,84 @@
         <script type="text/javascript" src="js/signUp.js"></script>
     </head>
     <body>
-
         <jsp:include page="header.jsp"/>
-        <!-- //banner-top -->
-        <!-- Modal1 -->
-        
-
-                <!-- //Modal content-->
-         
         <!-- //Modal1 -->
         <!-- Modal2 -->
-        
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body modal-body-sub_agile">
+                        <div class="col-md-8 modal_body_left modal_body_left1">
+                            <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
+                            <form>
+                                <div class="styled-input agile-styled-input-top">
+                                    <input type="text" name="Name" id ="name" required="" onblur="checkIfEmpty('name')">
+                                    <label>Name</label>
+                                    <span></span>
+                                </div>
+                                <label class="errMsg" id="nameErrMsg">Name field is required</label>
+
+                                <div class="styled-input">
+                                    <input type="text" name="Email" id="email" onblur="validateEmail()" required=""> 
+                                    <label>Email</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="emailErrMSg">Invalid Email</label>
+
+                                <div class="styled-input">
+                                    <input type="password" name="password" id="password" onblur="validatePassword()" required=""> 
+                                    <label>Password</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="passwordErrMsg">Password should be at least 6 characters long</label>
+
+                                <div class="styled-input">
+                                    <input type="password" name="Confirm Password" id="confirmPassword" onblur="validateConfirmPassword()" required=""> 
+                                    <label>Confirm Password</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="confirmPasswordErrMsg">Password does not match the confirm password</label>
+
+
+                                <div class="styled-input" >
+                                    <input type="text" name="birthday" id="birthday" onclick="showBdPlaceholder()" 
+                                           onblur="hideBdPlaceholder();validateBirthday();" required="">
+                                    <label>Birthday</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="birthdayErrMsg">Invalid Birthday</label>
+
+                                <div class="styled-input">
+                                    <input type="text" name="Job" id ="job" required="" onblur="checkIfEmpty('job')"> 
+                                    <label>Job</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="jobErrMsg">Job field is required</label>
+
+                                <div class="styled-input">
+                                    <input type="text" name="Address" id="address" required="" onblur="checkIfEmpty('address')"> 
+                                    <label>Address</label>
+                                    <span></span>
+                                </div>
+                                <label class="errMsg" id="addressErrMsg">Address field is required</label>
+                                <br><br>
+
+                                <input type="button" value="Sign Up" onclick="signUpNewUser()">
+                            </form>
+                        </div>
+                        <br><br><br><div class="col-md-4 modal_body_right modal_body_right1">
+                            <img src="images/log_pic.jpg" alt=" "/>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- //Modal content-->
+            </div>
+        </div>
         <!-- //Modal2 -->
 
         <!-- banner -->
@@ -137,11 +204,12 @@
                                             <form action="#" method="post">
                                                 <fieldset>
                                                     <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="id" value ="${product.productId}"/>
                                                     <input type="hidden" name="add" value="1" />
                                                     <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="Men's Black Jeans" />
-                                                    <input type="hidden" name="amount" value="30.99" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                                    <input type="hidden" name="item_name" value="${product.productName}" />
+                                                    <input type="hidden" name="amount" value="${product.productPrice}" />
+                                                    <input type="hidden" name="discount_amount" value="0.00" />
                                                     <input type="hidden" name="currency_code" value="USD" />
                                                     <input type="hidden" name="return" value=" " />
                                                     <input type="hidden" name="cancel_return" value=" " />
@@ -206,8 +274,8 @@
             </div>
         </div>
         <!--grids-->
-        <!-- footer -->
-
+        <jsp:include page="footer.jsp"/>
+        <a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
         <!-- js -->
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -293,6 +361,5 @@
         <!-- for bootstrap working -->
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript" src="js/minicart.min.js"></script>
-        <jsp:include page="footer.jsp"/>
     </body>
 </html>

@@ -71,19 +71,23 @@ public class AddProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+           String productId = request.getParameter("id");
            String productName=request.getParameter("productName");
            String productDiscription=request.getParameter("productDescription");
            String productPrice=request.getParameter("productPrice");
            String productQuantity=request.getParameter("productQuan");
            String productImage=request.getParameter("productImage");   
            Product p =new Product();
+           if(productId !=""){
+               p.setProductId(Integer.parseInt(productId));
+           }
            p.setProducctDescription(productDiscription);
            p.setProductName(productName);
            p.setProductPrice(Double.parseDouble(productPrice));
            p.setProductQuantity(Integer.parseInt(productQuantity));
            p.setProductImage(productImage);
            ProductManager  productManager = ProductManager.getProductManager();
-           productManager.insertProduct(p);
+           productManager.updateProduct(p);
           
            response.sendRedirect("ProductsServlet");
            
