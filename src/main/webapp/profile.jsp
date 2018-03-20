@@ -30,9 +30,8 @@
         <!--SignUp JS and Style-->
         <link rel="stylesheet" type="text/css" href="css/signUpModal.css">
         <script type="text/javascript" src="js/signUp.js"></script>
-        <!--Profile JS and Style-->
+        <!--Profile Style-->
         <link rel="stylesheet" type="text/css" href="css/profile.css">
-        <script type="text/javascript" src="js/profile.js"></script>
 
     </head>
     <body>
@@ -127,16 +126,102 @@
                 <div class="clearfix"></div>
             </div>
         </div>
+
         <!-- //banner-top -->
+        <!-- Edit-Profile-Modal -->
+        <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body modal-body-sub_agile">
+                        <div class="col-md-8 modal_body_left modal_body_left1">
+                            <h3 class="agileinfo_sign">Edit Your Profile</h3>
+                            <form>
+                                <div class="styled-input">
+                                    <input type="text" name="Name" id ="newName" required="" onblur="checkIfEmpty('newName')">
+                                    <label>Name</label>
+                                    <span></span>
+                                </div>
+                                <label class="errMsg" id="newNameErrMsg">Name field is required</label>
+
+                                <div class="styled-input">
+                                    <input type="text" name="gender" id="newGender" onclick="showGenderPlaceholder('newGender')" 
+                                           onblur="hideGenderPlaceholder('newGender');validateGender('newGender');" required=""> 
+                                    <label>Gender</label>
+                                    <span></span>
+                                </div>
+                                <label class="errMsg" id="newGenderErrMsg">Invalid Input</label>
+
+                                <div class="styled-input">
+                                    <input type="text" name="Email" id="newEmail" onblur="validateEmail('newEmail')" required=""> 
+                                    <label>Email</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="newEmailErrMSg">Invalid Email</label>
+
+                                <div class="styled-input">
+                                    <input type="password" name="password" id="newPassword" onblur="validatePassword('newPassword')" required=""> 
+                                    <label>Password</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="newPasswordErrMsg">Password should be at least 6 characters long</label>
+
+                                <div class="styled-input">
+                                    <input type="password" name="Confirm Password" id="newConfirmPassword" onblur="validateConfirmPassword('newPassword', 'newConfirmPassword')" required=""> 
+                                    <label>Confirm Password</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="newConfirmPasswordErrMsg">Password does not match the confirm password</label>
 
 
+                                <div class="styled-input" >
+                                    <input type="text" name="birthday" id="newBirthday" onclick="showBdPlaceholder('newBirthday')" 
+                                           onblur="hideBdPlaceholder('newBirthday');validateBirthday('newBirthday');" required="">
+                                    <label>Birthday</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="newBirthdayErrMsg">Invalid Birthday</label>
+
+                                <div class="styled-input">
+                                    <input type="text" name="Job" id ="newJob" required="" onblur="checkIfEmpty('newJob')"> 
+                                    <label>Job</label>
+                                    <span></span>
+                                </div> 
+                                <label class="errMsg" id="newJobErrMsg">Job field is required</label>
+
+                                <div class="styled-input">
+                                    <input type="text" name="Address" id="newAddress" required="" onblur="checkIfEmpty('newAddress')"> 
+                                    <label>Address</label>
+                                    <span></span>
+                                </div>
+                                <label class="errMsg" id="newAddressErrMsg">Address field is required</label>
+                                <br><br>
+
+                                <input type="button" value="Save" onclick="saveEditing()">
+                                <label id="editResult"></label>
+                            </form>
+                            <div class="clearfix"></div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- //Modal content-->
+            </div>
+        </div>
+        <!-- Edit-Profile-Modal -->
+
+        <!--Profile-Div-->
         <div class="profileDiv">
 
             <br>
 
             <input type="text" placeholder="Enter the code here..." class="newInput" id="creditCode">
             <input type="button" value="Charge" id = "chargeCreditBtn" onclick="chargeCreditCard(${sessionScope.userInformation.userId})">
-            <input type="button" value="Edit Profile" id = "profileBtn" onclick="editOrSaveProfileData(${sessionScope.userInformation.userId})">
+            <a href="#" data-toggle="modal" data-target="#editProfileModal"><input type="button" value="Edit Profile" id = "profileBtn" onclick="editUserProfile(${sessionScope.userInformation.userId}, ${sessionScope.userInformation.userPassword})"></a>
             <br>
             <div class="chargeResultCorrect" id="chargeMsg">charged successfully</div>
             <br>
@@ -155,27 +240,25 @@
 
                     <div id="userPasswordDiv">
                         <b>Password:&nbsp;&nbsp;</b>
-                        <span id="userPassword">
-                            <c:forEach begin="0" end="${fn:length(sessionScope.userInformation.userPassword) - 1}" step="1">
-                                <c:out value = "*"/>
-                            </c:forEach>
-                        </span>
+                        <span id="userPassword"><c:forEach begin="0" end="${fn:length(sessionScope.userInformation.userPassword) - 1}" step="1"><c:out value = "*"/></c:forEach></span>
+                        </div>
+                        <br><br>
+
+                        <div id="userGenderDiv">
+                            <b>Gender:&nbsp;&nbsp;</b>
+                            <span id="userGender">${sessionScope.userInformation.gender}</span>
                     </div>
                     <br><br>
 
                     <div id="userBirthdayDiv">
                         <b>Birthday:&nbsp;&nbsp;</b>
-                        <span id="userBirthday">
-                            ${sessionScope.userInformation.userBirthday}
-                        </span>
+                        <span id="userBirthday">${sessionScope.userInformation.userBirthday}</span>
                     </div>
                     <br><br>
 
                     <div id="userAddressDiv">
                         <b>Address:&nbsp;&nbsp;</b>
-                        <span id="userAddress">
-                            ${sessionScope.userInformation.address}
-                        </span>
+                        <span id="userAddress">${sessionScope.userInformation.address}</span>
                     </div>
                     <br><br>
 

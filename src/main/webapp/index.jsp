@@ -233,21 +233,29 @@
                                 <label class="errMsg" id="nameErrMsg">Name field is required</label>
 
                                 <div class="styled-input">
-                                    <input type="text" name="Email" id="email" onblur="validateEmail()" required=""> 
+                                    <input type="text" name="gender" id="gender" onclick="showGenderPlaceholder('gender')" 
+                                           onblur="hideGenderPlaceholder('gender');validateGender('gender');" required=""> 
+                                    <label>Gender</label>
+                                    <span></span>
+                                </div>
+                                <label class="errMsg" id="genderErrMsg">Invalid Input</label>
+                    
+                                <div class="styled-input">
+                                    <input type="text" name="Email" id="email" onblur="validateEmail('email')" required=""> 
                                     <label>Email</label>
                                     <span></span>
                                 </div> 
                                 <label class="errMsg" id="emailErrMSg">Invalid Email</label>
 
                                 <div class="styled-input">
-                                    <input type="password" name="password" id="password" onblur="validatePassword()" required=""> 
+                                    <input type="password" name="password" id="password" onblur="validatePassword('password')" required=""> 
                                     <label>Password</label>
                                     <span></span>
                                 </div> 
                                 <label class="errMsg" id="passwordErrMsg">Password should be at least 6 characters long</label>
 
                                 <div class="styled-input">
-                                    <input type="password" name="Confirm Password" id="confirmPassword" onblur="validateConfirmPassword()" required=""> 
+                                    <input type="password" name="Confirm Password" id="confirmPassword" onblur="validateConfirmPassword('password','confirmPassword')" required=""> 
                                     <label>Confirm Password</label>
                                     <span></span>
                                 </div> 
@@ -255,8 +263,8 @@
 
 
                                 <div class="styled-input" >
-                                    <input type="text" name="birthday" id="birthday" onclick="showBdPlaceholder()" 
-                                           onblur="hideBdPlaceholder();validateBirthday();" required="">
+                                    <input type="text" name="birthday" id="birthday" onclick="showBdPlaceholder('birthday')" 
+                                           onblur="hideBdPlaceholder('birthday');validateBirthday('birthday');" required="">
                                     <label>Birthday</label>
                                     <span></span>
                                 </div> 

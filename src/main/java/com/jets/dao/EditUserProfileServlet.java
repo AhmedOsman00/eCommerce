@@ -2,6 +2,9 @@ package com.jets.dao;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,10 +50,12 @@ public class EditUserProfileServlet extends HttpServlet {
             currentUser.setUserEmail(userEmail);
             currentUser.setUserPassword(userPassword);
             currentUser.setAddress(userAddress);
+            currentUser.setUserBirthday(userBD);
 
             userSession.beginTransaction();
             userSession.persist(currentUser);
             userSession.getTransaction().commit();
+            request.getSession().setAttribute("userInformation", currentUser);
             out.print("ok");
 
         } catch (Exception ex) {

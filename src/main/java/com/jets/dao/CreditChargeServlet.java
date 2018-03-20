@@ -50,8 +50,8 @@ public class CreditChargeServlet extends HttpServlet {
                 
                 //delete credit code row
                 creditDAO.deleteCreditCode(creditCode.toString());
-                
-                out.print("correct");
+                request.getSession().setAttribute("userInformation", currentUser);
+                out.print(currentUser.getUserCreditLimt());
             }
         
         
