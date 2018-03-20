@@ -21,9 +21,11 @@ public class Validator {
 
     //returns true if the user was not found
     public boolean checkEmailUniqueness(String email) {
-        boolean res= true;
-        /*if(userdao.selectUser(email)!=null)
-            res = false;*/
+        boolean res= false;
+        if(userdao.isEmailDuplicated(email)==false){
+            res = true;
+            
+        }
         return res;
     }
 

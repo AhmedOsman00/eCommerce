@@ -28,7 +28,7 @@ public class SignUpServlet extends HttpServlet {
                 String email = request.getParameter("email");
                 if (validator.validateEmail(email)) {
                     if (validator.checkEmailUniqueness(email)) {
-                        out.print("valid");
+                        out.print("validEmaillllllllll");
                         System.out.println("ValidEmail");
                     } else {
                         out.print("invalid");

@@ -72,6 +72,26 @@ public class UserDAOImp implements UserDAOInt {
     public boolean deleteUser(String email) {
         boolean userDeleted = false;
 
+        if (session != null) {
+            try {
+                String hql = "from User where userEmail=:email";
+                Query query = session.createQuery(hql);
+                query.setParameter("email", email);
+                List<User> list = query.list();
+                if (list.size() != 0) {
+                    System.out.println("user :: found");
+                    userDeleted = true;
+
+                }
+            } catch (Exception exception) {
+                System.out.println("Exception occred while reading user data: "
+                        + exception.getMessage());
+                exception.printStackTrace();
+            }
+        } else {
+            System.out.println("DB server down.....");
+        }
+        
         return userDeleted;
     }
 
