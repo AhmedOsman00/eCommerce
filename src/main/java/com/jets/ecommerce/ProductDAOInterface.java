@@ -21,4 +21,5 @@ public interface ProductDAOInterface {
     Product selectProductById(int id);
     Session getCurrentSession();
     ArrayList<Product> searchProducts(String key);
+    public void updateProduct(Product editProduct) ;
 }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jets.dao;
+package com.jets.ecommerce;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Ahmed Ali
  */
-public class LoginServlet extends HttpServlet {
+public class logoutServelet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -26,11 +27,8 @@ public class LoginServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-              
-    }
+
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -43,7 +41,10 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //  processRequest(request, response);
+         System.out.println("valid :: Log Out Servelet called");
+            HttpSession session = request.getSession(false);
+            session.invalidate();
+            response.sendRedirect("ProductsServlet");
     }
 
     /**
@@ -57,21 +58,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //  processRequest(request, response)
-        String userEmail = request.getParameter("userName");
-        String password = request.getParameter("userPass");              
-        UserDAOImp userDaoImp = UserDAOImp.getUserDAO();        
-        User user = userDaoImp.selectUser(userEmail, password);
-        if (user != null) {
-            System.out.println("valid :: login");
-            HttpSession session = request.getSession(true);
-            session.setAttribute("userInformation", user);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-         
-       } else {                 
-            System.out.println("invaild :: login");
-            response.getWriter().write("InValid");
-        }
+        
     }
 
     /**

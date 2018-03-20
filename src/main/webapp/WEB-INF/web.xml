@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
     <servlet>
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>com.jets.dao.SignUpServlet</servlet-class>
@@ -49,7 +50,7 @@
         <url-pattern>/EditUserProfileServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-    <servlet-name>ProductsServlet</servlet-name>
+        <servlet-name>ProductsServlet</servlet-name>
         <servlet-class>com.jets.ecommerce.ProductsServlet</servlet-class>
     </servlet>
     <servlet>
@@ -64,9 +65,28 @@
         <servlet-name>EditDeleteServlet</servlet-name>
         <url-pattern>/EditDeleteServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>com.jets.dao.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutServelet</servlet-name>
+        <url-pattern>/logoutServelet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>logoutServelet</servlet-name>
+        <servlet-class>com.jets.ecommerce.logoutServelet</servlet-class>
+    </servlet>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>ProductsServlet</welcome-file>
+    </welcome-file-list>
 </web-app>

@@ -40,7 +40,8 @@ public class ProductManager implements ProductDAOInterface {
     public void insertProduct(Product product) {
         session.beginTransaction();
         session.persist(product);
-        session.getTransaction().commit();     
+        session.getTransaction().commit();   
+        System.out.println("Insertion Producr Done");
     }
 
     @Override
@@ -87,6 +88,21 @@ public class ProductManager implements ProductDAOInterface {
             products.add(product);
         }
         return products;
+    }
+
+    @Override
+    public void updateProduct(Product editProduct) {
+        if(editProduct.getProductId() != null){
+            Product newproduct = selectProductById(editProduct.getProductId());
+            newproduct.setProductImage(editProduct.getProductImage());
+            newproduct.setProductName(editProduct.getProductName());
+            newproduct.setProducctDescription(editProduct.getProducctDescription());
+            newproduct.setProductPrice(editProduct.getProductPrice());
+            newproduct.setProductQuantity(editProduct.getProductQuantity());
+        }else{
+            insertProduct(editProduct);
+        }
+        
     }
     
 }
